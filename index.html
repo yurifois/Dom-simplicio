@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Dom Simplício Pizzaria e Hamburgueria - O sabor que vale a viagem. DF-250 Km 7, ao lado da Brassol. Delivery para Sobradinho e região.">
+  <meta name="keywords" content="pizza, pizzaria, hamburgueria, Dom Simplício, DF-250, Sobradinho, delivery">
+  <title>Dom Simplício | Pizzaria e Hamburgueria</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="logo.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Dom Simplício",
+    "image": "https://domsimplicio.com.br/logo.png",
+    "@id": "",
+    "url": "https://domsimplicio.com.br",
+    "telephone": "+55-61-99267-3404",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "DF-250 Km 7",
+      "addressLocality": "Sobradinho",
+      "addressRegion": "DF",
+      "postalCode": "73000-000",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -15.65,
+      "longitude": -47.78
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "18:00",
+      "closes": "23:59"
+    },
+    "menu": "https://domsimplicio.com.br/index.html#cardapio",
+    "servesCuisine": "Pizza, Burger",
+    "priceRange": "$$"
+  }
+  </script>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#home" class="logo"><img src="logo.png" alt="Dom Simplício" class="logo-img"></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#home" onclick="toggleMenu()">Início</a></li>
+        <li><a href="index.html#cardapio" onclick="toggleMenu()">Pizzas</a></li>
+        <li><a href="hamburguers.html" onclick="toggleMenu()">Hambúrgueres</a></li>
+        <li><a href="bebidas.html" onclick="toggleMenu()">Bebidas</a></li>
+        <li><a href="https://wa.me/5561992673404?text=Olá! Gostaria de fazer um pedido." class="nav-cta"
+            target="_blank">Pedir Agora</a></li>
+      </ul>
+      <div class="nav-extra">
+        <button class="cart-toggle" onclick="toggleCart()">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
+          </svg>
+          <span class="cart-count">0</span>
+        </button>
+        <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <!-- Video Background -->
+    <video class="hero-video-bg" autoplay muted loop playsinline>
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Simplicidade e <em>Sabor</em></h1>
+      <p class="hero-tagline">Pizzaria e Hamburgueria na DF-250. Pizzas artesanais e hambúrgueres feitos com amor e
+        ingredientes selecionados.</p>
+      <p class="hero-address">DF-250, Km 7 — Ao lado da Brassol</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/5561992673404?text=Olá! Gostaria de fazer um pedido." class="cta-btn cta-primary"
+          target="_blank">
+          Pedir Agora
+        </a>
+        <a href="https://www.google.com/maps/search/?api=1&query=DF-250+Km+7+Brassol+Sobradinho"
+          class="cta-btn cta-secondary" target="_blank">
+          Como Chegar
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Delivery Checker -->
+  <section class="delivery-checker">
+    <div class="container">
+      <h3>Entregamos em:</h3>
+      <div class="delivery-areas-grid">
+        <span class="delivery-tag">Fazenda Velha</span>
+        <span class="delivery-tag">Beraca</span>
+        <span class="delivery-tag">Sobradinho dos Melos</span>
+        <span class="delivery-tag">Rajadinha</span>
+        <span class="delivery-tag">La Font</span>
+        <span class="delivery-tag">Entre Lagos</span>
+        <span class="delivery-tag">Novo Horizonte</span>
+        <span class="delivery-tag">Paranoá</span>
+        <span class="delivery-tag">Paranoá Park</span>
+        <span class="delivery-tag">Itapoã Park</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section class="menu-section" id="cardapio">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Nosso Cardápio</span>
+        <h2>Pizzas Artesanais</h2>
+        <p>Toque na pizza para ver os ingredientes</p>
+      </div>
+
+      <!-- Menu Tabs -->
+      <div class="menu-tabs">
+        <button class="menu-tab active" onclick="showCategory(event, 'tradicionais')">
+          Tradicionais <span class="price">R$38</span>
+        </button>
+        <button class="menu-tab" onclick="showCategory(event, 'doces')">
+          Doces <span class="price">R$33</span>
+        </button>
+        <button class="menu-tab" onclick="showCategory(event, 'especiais')">
+          Especiais <span class="price">R$43</span>
+        </button>
+        <button class="menu-tab" onclick="showCategory(event, 'vip')">
+          VIP <span class="price">R$46</span>
+        </button>
+      </div>
+
+      <!-- Tradicionais -->
+      <div class="menu-info-banner">
+        <div class="info-item">
+          <span class="info-icon">🎁</span>
+          <p>Borda de <strong>Catupiry ou Cheddar</strong> é <strong>GRÁTIS!</strong></p>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">🍫</span>
+          <p>Bordas Doces por apenas <strong>R$ 2,00</strong></p>
+        </div>
+      </div>
+
+      <div class="menu-category active" id="tradicionais">
+        <div class="pizza-grid">
+          <div class="pizza-card" data-type="pizza" data-price1="tradicionais"
+            onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/mussarela.jpg" alt="Pizza Mussarela" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Mussarela</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Mussarela</h4>
+                <p class="ingredients">Molho de tomate pelati, generosa camada de mussarela premium, rodelas de tomate
+                  fresco e orégano. O clássico que nunca falha.</p>
+                <div class="match-tag">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M21 7L9 19L3.5 13.5L4.91 12.09L9 16.17L19.59 5.59L21 7Z" />
+                  </svg>
+                  Match Perfeito: Coca-Cola Gelada
+                </div>
+                <span class="price-tag">R$ 38,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" data-type="pizza" data-price1="tradicionais"
+            onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/calabresa.jpg" alt="Pizza Calabresa" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Calabresa</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Calabresa</h4>
+                <p class="ingredients">Molho artesanal, mussarela, calabresa fatiada crocante, cebola roxa e azeitonas
+                  pretas. Sabor intenso e defumado.</p>
+                <div class="match-tag">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M21 7L9 19L3.5 13.5L4.91 12.09L9 16.17L19.59 5.59L21 7Z" />
+                  </svg>
+                  Match Perfeito: Guaraná Antarctica
+                </div>
+                <span class="price-tag">R$ 38,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/portuguesa.jpg" alt="Pizza Portuguesa" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Portuguesa</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Portuguesa</h4>
+                <p class="ingredients">Mussarela, presunto, calabresa, ovo, cebola, pimentão, azeitona, tomate e orégano
+                </p>
+                <span class="price-tag">R$ 38,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" data-type="pizza" data-price1="tradicionais"
+            onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/frango_catupiry.jpg" alt="Pizza Frango com Catupiry" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Frango c/ Catupiry</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Frango c/ Catupiry</h4>
+                <p class="ingredients">Mussarela, frango, catupiry e orégano</p>
+                <span class="price-tag">R$ 38,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" data-type="pizza" data-price1="tradicionais"
+            onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/napolitana_v2.jpg" alt="Pizza Napolitana" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Napolitana</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Napolitana</h4>
+                <p class="ingredients">Mussarela, presunto, tomate, cebola e orégano</p>
+                <span class="price-tag">R$ 38,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" data-type="pizza" data-price1="tradicionais"
+            onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/media__1776976835519.jpg" alt="Pizza Presunto" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Presunto</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Presunto</h4>
+                <p class="ingredients">Mussarela, presunto e orégano</p>
+                <span class="price-tag">R$ 38,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/americana.jpg" alt="Pizza Americana" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Americana</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Americana</h4>
+                <p class="ingredients">Mussarela, bacon, cebola, ovo, azeitona e orégano</p>
+                <span class="price-tag">R$ 38,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/media__1776976500220.jpg" alt="Pizza Siciliana" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Siciliana</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Siciliana</h4>
+                <p class="ingredients">Mussarela, presunto, calabresa, bacon, milho e orégano</p>
+                <span class="price-tag">R$ 38,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/dois_queijos.jpg" alt="Pizza Dois Queijos" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Dois Queijos</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Dois Queijos</h4>
+                <p class="ingredients">Mussarela, catupiry e orégano</p>
+                <span class="price-tag">R$ 38,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/mista.jpg" alt="Pizza Mista" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Mista</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Mista</h4>
+                <p class="ingredients">Mussarela, calabresa, ovo, azeitona e orégano</p>
+                <span class="price-tag">R$ 38,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/catumilho.jpg" alt="Pizza Catumilho" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Catumilho</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Catumilho</h4>
+                <p class="ingredients">Mussarela, catupiry, milho e orégano</p>
+                <span class="price-tag">R$ 38,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/media__1776976072051.jpg" alt="Pizza Grega" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Grega</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Grega</h4>
+                <p class="ingredients">Mussarela, calabresa, frango, milho, catupiry, tomate, azeitona e orégano</p>
+                <span class="price-tag">R$ 38,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/media__1776976385295.jpg" alt="Pizza Caipira" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Caipira</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Caipira</h4>
+                <p class="ingredients">Mussarela, frango, milho, bacon, catupiry e azeitona</p>
+                <span class="price-tag">R$ 38,00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Doces -->
+      <div class="menu-category" id="doces">
+        <div class="pizza-grid">
+          <div class="pizza-card" data-type="pizza" data-price1="doces" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/banana.jpg" alt="Pizza Banana" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Banana com Canela</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Banana com Canela</h4>
+                <p class="ingredients">Mussarela, banana, canela e açúcar</p>
+                <span class="price-tag">R$ 38,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" data-type="pizza" data-price1="doces" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/banana_chocolate.jpg" alt="Pizza Banana com Chocolate" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Banana c/ Chocolate</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Banana c/ Chocolate</h4>
+                <p class="ingredients">Mussarela, banana e chocolate</p>
+                <span class="price-tag">R$ 38,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" data-type="pizza" data-price1="doces" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/media__1776977498108.jpg" alt="Pizza de Chocolate" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Chocolate</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Chocolate</h4>
+                <p class="ingredients">Mussarela e chocolate ao leite</p>
+                <span class="price-tag">R$ 33,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" data-type="pizza" data-price1="doces" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/romeu_e_julieta.jpg" alt="Pizza Romeu e Julieta" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Romeu e Julieta</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Romeu e Julieta</h4>
+                <p class="ingredients">Mussarela, goiabada e catupiry</p>
+                <span class="price-tag">R$ 38,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" data-type="pizza" data-price1="doces" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/media__1776977115374.jpg" alt="Pizza de Beijinho" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Beijinho</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Beijinho</h4>
+                <p class="ingredients">Mussarela, coco ralado e leite condensado</p>
+                <span class="price-tag">R$ 38,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" data-type="pizza" data-price1="doces" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/media__1776977196652.jpg" alt="Pizza Prestígio" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Prestígio</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Prestígio</h4>
+                <p class="ingredients">Mussarela, chocolate e coco ralado</p>
+                <span class="price-tag">R$ 38,00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Especiais -->
+      <div class="menu-category" id="especiais">
+        <div class="pizza-grid">
+          <div class="pizza-card" data-type="pizza" data-price1="especiais" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/media__1776978051244.png" alt="Pizza Bacon" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Bacon</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Bacon</h4>
+                <p class="ingredients">Mussarela, bacon e orégano</p>
+                <span class="price-tag">R$ 43,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" data-type="pizza" data-price1="especiais" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/media__1776978612392.jpg" alt="Pizza Carbonara" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Carbonara</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Carbonara</h4>
+                <p class="ingredients">Mussarela, frango, milho, bacon, calabresa, catupiry, batata palha e orégano</p>
+                <span class="price-tag">R$ 43,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" data-type="pizza" data-price1="especiais" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/toscana.jpg" alt="Pizza Toscana" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Toscana</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Toscana</h4>
+                <p class="ingredients">Mussarela, calabresa, cebola, bacon, azeitona e orégano</p>
+                <span class="price-tag">R$ 43,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" data-type="pizza" data-price1="especiais" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/a_moda.jpg" alt="Pizza A Moda" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>A Moda</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>A Moda</h4>
+                <p class="ingredients">Mussarela, presunto, calabresa, bacon, ovo, frango, cebola, milho, tomate,
+                  azeitona e orégano</p>
+                <span class="price-tag">R$ 43,00</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pizza-card" data-type="pizza" data-price1="especiais" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/media__1776978780080.jpg" alt="Pizza Vegetariana" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Vegetariana</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Vegetariana</h4>
+                <p class="ingredients">Mussarela, tomate, palmito, pimentão, cebola, milho e orégano</p>
+                <span class="price-tag">R$ 43,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" data-type="pizza" data-price1="especiais" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/media__1776978754737.jpg" alt="Pizza Lombo Suíno" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Lombo Suíno</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Lombo Suíno</h4>
+                <p class="ingredients">Mussarela, lombo e orégano</p>
+                <span class="price-tag">R$ 43,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" data-type="pizza" data-price1="especiais" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/calabresa.png" alt="Pizza Calabresa ao Cheddar" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Calabresa ao Cheddar</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Calabresa ao Cheddar</h4>
+                <p class="ingredients">Mussarela, calabresa, cebola, cheddar, azeitona e orégano</p>
+                <span class="price-tag">R$ 43,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" data-type="pizza" data-price1="especiais" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/media__1776977691308.jpg" alt="Pizza DF 250" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>DF 250</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>DF 250</h4>
+                <p class="ingredients">Mussarela, presunto, frango, cheddar, bacon, azeitona e orégano</p>
+                <span class="price-tag">R$ 43,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" data-type="pizza" data-price1="especiais" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/mega_portuguesa.jpg" alt="Pizza Mega Portuguesa" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Mega Portuguesa</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Mega Portuguesa</h4>
+                <p class="ingredients">Mussarela, calabresa, lombo, cebola, tomate, milho, palmito, pimentão, catupiry e
+                  orégano</p>
+                <span class="price-tag">R$ 43,00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIP -->
+      <div class="menu-category" id="vip">
+        <div class="pizza-grid">
+          <div class="pizza-card" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/media__1776978586025.jpg" alt="Pizza Quero Mais" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Quero Mais</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Quero Mais</h4>
+                <p class="ingredients">Mussarela, calabresa, frango, presunto, ovo, pimentão, bacon, lombo, tomate,
+                  cebola, azeitona, catupiry e orégano</p>
+                <span class="price-tag">R$ 46,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/media__1776978896673.jpg" alt="Pizza Carne Seca VIP" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Carne Seca VIP</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Carne Seca VIP</h4>
+                <p class="ingredients">Mussarela, carne seca, pimentão, tomate, cebola e orégano</p>
+                <span class="price-tag">R$ 46,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/carne_seca.jpg" alt="Pizza Carne Seca" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Carne Seca</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Carne Seca</h4>
+                <p class="ingredients">Mussarela, carne seca, catupiry e orégano</p>
+                <span class="price-tag">R$ 46,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/carne_seca.png" alt="Pizza Carne Seca ao Cheddar" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Carne Seca ao Cheddar</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Carne Seca ao Cheddar</h4>
+                <p class="ingredients">Mussarela, carne seca, presunto, cheddar e orégano</p>
+                <span class="price-tag">R$ 46,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/costela_cebola.jpg" alt="Pizza Costela com Cebola" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Costela c/ Cebola</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Costela c/ Cebola</h4>
+                <p class="ingredients">Mussarela, costela desfiada, cebola roxa e orégano</p>
+                <span class="price-tag">R$ 46,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/costela_catupiry.jpg" alt="Pizza Costela com Catupiry" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Costela c/ Catupiry</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Costela c/ Catupiry</h4>
+                <p class="ingredients">Mussarela, costela desfiada, catupiry e orégano</p>
+                <span class="price-tag">R$ 46,00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="experience-section" id="sobre">
+    <!-- Video Background -->
+    <video class="experience-video-bg" autoplay muted loop playsinline>
+      <source src="pizza-video.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">A Experiência</span>
+        <h2>Um Refúgio Gastronômico</h2>
+        <p>A poucos minutos do centro, na DF-250</p>
+      </div>
+      <div class="experience-grid">
+        <div class="experience-card reveal">
+          <div class="experience-card-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+            </svg>
+          </div>
+          <h3>Ambiente Familiar</h3>
+          <p>Espaço aconchegante para você curtir com a família e amigos em meio à natureza.</p>
+        </div>
+        <div class="experience-card reveal">
+          <div class="experience-card-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z" />
+            </svg>
+          </div>
+          <h3>Delivery Rápido</h3>
+          <p>Entregamos em toda região de Sobradinho. Sua pizza chega quentinha na sua casa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location Section -->
+  <section class="location-section" id="localizacao">
+    <div class="container">
+      <div class="location-content">
+        <div class="location-info reveal">
+          <span class="section-label">Como Chegar</span>
+          <h2>Localização</h2>
+
+          <div class="location-details">
+            <div class="location-item">
+              <div class="location-item-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+              </div>
+              <div>
+                <h4>Endereço</h4>
+                <p>DF-250, Km 7<br>Ao lado da Brassol</p>
+              </div>
+            </div>
+            <div class="location-item">
+              <div class="location-item-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>
+              </div>
+              <div>
+                <h4>WhatsApp</h4>
+                <p><a href="https://wa.me/5561992673404">(61) 99267-3404</a></p>
+              </div>
+            </div>
+            <div class="location-item">
+              <div class="location-item-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                </svg>
+              </div>
+              <div>
+                <h4>Horário</h4>
+                <p>Terça a Domingo<br>18h às 23h</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="reference-box">
+            <h4>Pontos de Referência</h4>
+            <p>Estamos no Km 7 da DF-250, ao lado da Brassol, sentido Planaltina. Fácil acesso e estacionamento próprio.
+            </p>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3838.8!2d-47.7!3d-15.65!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDM5JzAwLjAiUyA0N8KwNDInMDAuMCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização Dom Simplício">
+            </iframe>
+          </div>
+          <div class="map-cta">
+            <a href="https://www.google.com/maps/search/?api=1&query=DF-250+Km+7+Brassol+Sobradinho"
+              class="cta-btn cta-secondary" target="_blank">
+              Abrir no Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <img src="logo.png" alt="Dom Simplício" class="footer-logo-img">
+      <p>DF-250, Km 7 — Ao lado da Brassol | (61) 99267-3404</p>
+      <p>© 2026 Dom Simplício Pizzaria e Hamburgueria. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Cart Button -->
+  <button class="cart-btn" onclick="toggleCart()">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
+    </svg>
+    <span class="cart-count" id="cartCount">0</span>
+  </button>
+
+
+  <!-- Cart Sidebar -->
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Seu Pedido</h3>
+      <button class="cart-close" onclick="closeCart()">&times;</button>
+    </div>
+    <div class="cart-body">
+      <div id="cartItems"></div>
+      <div id="beverageSection"></div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-totals">
+        <div>
+          <span>Subtotal</span>
+          <span id="cartSubtotal">R$ 0,00</span>
+        </div>
+        <div class="total-row">
+          <span>Total</span>
+          <span id="cartTotal">R$ 0,00</span>
+        </div>
+      </div>
+      <button class="btn-checkout" onclick="checkout()">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .006 5.408 0 12.049c0 2.123.554 4.197 1.608 6.013L0 24l6.135-1.61a11.83 11.83 0 005.911 1.586h.005c6.635 0 12.043-5.408 12.049-12.048A11.82 11.82 0 0020.464 3.49z" />
+        </svg>
+        Finalizar Pedido
+      </button>
+    </div>
+  </div>
+  <div class="cart-overlay" onclick="closeCart()"></div>
+
+  <!-- Modal Structure -->
+  <div class="modal" id="pizzaModal">
+    <div class="modal-content" id="pizzaModalContent"></div>
+  </div>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/5561992673404?text=Olá! Gostaria de fazer um pedido." class="whatsapp-float" target="_blank">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .006 5.408 0 12.049c0 2.123.554 4.197 1.608 6.013L0 24l6.135-1.61a11.83 11.83 0 005.911 1.586h.005c6.635 0 12.043-5.408 12.049-12.048A11.82 11.82 0 0020.464 3.49z" />
+    </svg>
+    <span>Pedir Agora</span>
+  </a>
+
+  <script src="cart.js"></script>
+  <script>
+    // Mobile Menu Toggle
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function () {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Scroll Reveal Animation
+    function reveal() {
+      const reveals = document.querySelectorAll('.reveal');
+      reveals.forEach(element => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('active');
+        }
+      });
+    }
+    window.addEventListener('scroll', reveal);
+    reveal();
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Lazy loading handler
+    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+      img.addEventListener('load', function () { this.classList.add('loaded'); });
+    });
+  </script>
+</body>
+
+</html>

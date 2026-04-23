@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dom Simplício Hamburgueria - Hambúrgueres artesanais e combos deliciosos.">
+    <title>Hambúrgueres | Dom Simplício</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Menu",
+      "name": "Cardápio de Hambúrgueres e Petiscos - Dom Simplício",
+      "mainEntityOfPage": "https://domsimplicio.com.br/hamburguers.html",
+      "hasMenuSection": [
+        {
+          "@type": "MenuSection",
+          "name": "Hambúrgueres Tradicionais",
+          "description": "Clássicos suculentos feitos na hora."
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Hambúrgueres Artesanais",
+          "description": "Receitas autorais com ingredientes premium."
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Petiscos",
+          "description": "Porções crocantes para compartilhar."
+        }
+      ]
+    }
+    </script>
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container">
+            <a href="index.html#home" class="logo"><img src="logo.png" alt="Dom Simplício" class="logo-img"></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home" onclick="toggleMenu()">Início</a></li>
+                <li><a href="index.html#cardapio" onclick="toggleMenu()">Pizzas</a></li>
+                <li><a href="hamburguers.html" class="active" onclick="toggleMenu()">Hambúrgueres</a></li>
+                <li><a href="bebidas.html" onclick="toggleMenu()">Bebidas</a></li>
+                <li><a href="https://wa.me/5561992673404?text=Olá! Gostaria de fazer um pedido." class="nav-cta"
+                        target="_blank">Pedir Agora</a></li>
+            </ul>
+            <div class="nav-extra">
+                <button class="cart-toggle" onclick="toggleCart()">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
+                    </svg>
+                    <span class="cart-count">0</span>
+                </button>
+                <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Button (FAB for Mobile) -->
+    <button class="cart-btn" onclick="toggleCart()">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
+        </svg>
+        <span class="cart-count">0</span>
+    </button>
+
+    <section class="menu-section" style="padding-top: 120px; min-height: 100vh;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Nossos Hambúrgueres</span>
+                <h2>Tradicionais & Artesanais</h2>
+                <p>Hambúrgueres suculentos preparados na hora</p>
+            </div>
+
+            <div class="menu-tabs">
+                <button class="menu-tab active" onclick="showCategory(event, 'tradicionais')">Tradicionais</button>
+                <button class="menu-tab" onclick="showCategory(event, 'artesanais')">Artesanais</button>
+                <button class="menu-tab" onclick="showCategory(event, 'petiscos')">Petiscos</button>
+            </div>
+
+            <!-- Tradicionais -->
+            <div class="menu-category active" id="tradicionais">
+                <div class="pizza-grid">
+                    <div class="pizza-card" data-type="burger" data-price1="14" data-price2="25"
+                        onclick="this.classList.toggle('flipped')">
+                        <div class="pizza-card-inner">
+                            <div class="pizza-card-front">
+                                <div class="pizza-card-image"><img src="images/media__1776982437348.png"
+                                        alt="X-Burguer"></div>
+                                <div class="pizza-card-info">
+                                    <h4>X-Burguer</h4><span class="tap-hint">Toque para ver detalhes</span>
+                                </div>
+                            </div>
+                            <div class="pizza-card-back">
+                                <h4>X-Burguer</h4>
+                                <p class="ingredients">Pão de hambúrguer selado na manteiga, carne suculenta, queijo
+                                    derretido e molho de ervas. Simples e perfeito.</p>
+                                <div class="match-tag">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M21 7L9 19L3.5 13.5L4.91 12.09L9 16.17L19.59 5.59L21 7Z" />
+                                    </svg>
+                                    Match Perfeito: Coca-Cola Lata
+                                </div>
+                                <span class="price-tag">A partir de R$ 14,00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pizza-card" data-type="burger" data-price1="16" data-price2="27"
+                        onclick="this.classList.toggle('flipped')">
+                        <div class="pizza-card-inner">
+                            <div class="pizza-card-front">
+                                <div class="pizza-card-image"><img src="images/media__1776982456632.jpg"
+                                        alt="X-Salada"></div>
+                                <div class="pizza-card-info">
+                                    <h4>X-Salada</h4><span class="tap-hint">Toque para ver detalhes</span>
+                                </div>
+                            </div>
+                            <div class="pizza-card-back">
+                                <h4>X-Salada</h4>
+                                <p class="ingredients">Pão de hambúrguer selado na manteiga, carne suculenta, queijo
+                                    derretido, presunto, alface americana fresca, tomate e molho de ervas.</p>
+                                <div class="match-tag">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M21 7L9 19L3.5 13.5L4.91 12.09L9 16.17L19.59 5.59L21 7Z" />
+                                    </svg>
+                                    Match Perfeito: Guaraná Antarctica
+                                </div>
+                                <span class="price-tag">A partir de R$ 16,00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pizza-card" data-type="burger" data-price1="20" data-price2="32"
+                        onclick="this.classList.toggle('flipped')">
+                        <div class="pizza-card-inner">
+                            <div class="pizza-card-front">
+                                <div class="pizza-card-image"><img src="images/media__1776982469532.jpg"
+                                        alt="X-Bacon"></div>
+                                <div class="pizza-card-info">
+                                    <h4>X-Bacon</h4><span class="tap-hint">Toque para ver detalhes</span>
+                                </div>
+                            </div>
+                            <div class="pizza-card-back">
+                                <h4>X-Bacon</h4>
+                                <p class="ingredients">Pão de hambúrguer selado na manteiga, carne suculenta, queijo
+                                    derretido, fatias de bacon crocante, alface e tomate.</p>
+                                <div class="match-tag">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M21 7L9 19L3.5 13.5L4.91 12.09L9 16.17L19.59 5.59L21 7Z" />
+                                    </svg>
+                                    Match Perfeito: Coca-Cola Lata
+                                </div>
+                                <span class="price-tag">A partir de R$ 20,00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pizza-card" data-type="burger" data-price1="18" data-price2="30"
+                        onclick="this.classList.toggle('flipped')">
+                        <div class="pizza-card-inner">
+                            <div class="pizza-card-front">
+                                <div class="pizza-card-image"><img src="images/media__1776982478406.jpg"
+                                        alt="X-Egg"></div>
+                                <div class="pizza-card-info">
+                                    <h4>X-Egg</h4><span class="tap-hint">Toque para ver detalhes</span>
+                                </div>
+                            </div>
+                            <div class="pizza-card-back">
+                                <h4>X-Egg</h4>
+                                <p class="ingredients">Pão de hambúrguer selado na manteiga, carne suculenta, queijo
+                                    derretido e um ovo frito na hora com alface e tomate.</p>
+                                <div class="match-tag">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M21 7L9 19L3.5 13.5L4.91 12.09L9 16.17L19.59 5.59L21 7Z" />
+                                    </svg>
+                                    Match Perfeito: Suco de Laranja
+                                </div>
+                                <span class="price-tag">A partir de R$ 18,00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pizza-card" data-type="burger" data-price1="20" data-price2="32"
+                        onclick="this.classList.toggle('flipped')">
+                        <div class="pizza-card-inner">
+                            <div class="pizza-card-front">
+                                <div class="pizza-card-image"><img src="images/media__1776982486852.png"
+                                        alt="X-Calabresa"></div>
+                                <div class="pizza-card-info">
+                                    <h4>X-Calabresa</h4><span class="tap-hint">Toque para ver detalhes</span>
+                                </div>
+                            </div>
+                            <div class="pizza-card-back">
+                                <h4>X-Calabresa</h4>
+                                <p class="ingredients">Pão, hambúrguer, queijo, presunto, calabresa, alface e tomate.
+                                </p>
+                                <span class="price-tag">A partir de R$ 20,00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pizza-card" data-type="burger" data-price1="25" data-price2="37"
+                        onclick="this.classList.toggle('flipped')">
+                        <div class="pizza-card-inner">
+                            <div class="pizza-card-front">
+                                <div class="pizza-card-image"><img src="images/media__1776983085701.jpg"
+                                        alt="X-Tudo"></div>
+                                <div class="pizza-card-info">
+                                    <h4>X-Tudo</h4><span class="tap-hint">Toque para ver detalhes</span>
+                                </div>
+                            </div>
+                            <div class="pizza-card-back">
+                                <h4>X-Tudo</h4>
+                                <p class="ingredients">Pão, hambúrguer, queijo, presunto, bacon, ovo, alface e tomate.
+                                </p>
+                                <span class="price-tag">A partir de R$ 25,00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artesanais -->
+            <div class="menu-category" id="artesanais">
+                <div class="pizza-grid">
+                    <div class="pizza-card" data-type="burger" data-price1="18" data-price2="28"
+                        onclick="this.classList.toggle('flipped')">
+                        <div class="pizza-card-inner">
+                            <div class="pizza-card-front">
+                                <div class="pizza-card-image"><img src="images/artisan_burger_hero_1772481379318.png"
+                                        alt="Tradicional"></div>
+                                <div class="pizza-card-info">
+                                    <h4>Tradicional</h4><span class="tap-hint">Toque para ver detalhes</span>
+                                </div>
+                            </div>
+                            <div class="pizza-card-back">
+                                <h4>Tradicional</h4>
+                                <p class="ingredients">Pão com gergelim, blend de carnes, alface, tomate e molho
+                                    especial.</p>
+                                <span class="price-tag">A partir de R$ 18,00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pizza-card" data-type="burger" data-price1="20" data-price2="30"
+                        onclick="this.classList.toggle('flipped')">
+                        <div class="pizza-card-inner">
+                            <div class="pizza-card-front">
+                                <div class="pizza-card-image"><img src="images/artisan_burger_hero_1772481379318.png"
+                                        alt="Caseiro"></div>
+                                <div class="pizza-card-info">
+                                    <h4>Caseiro</h4><span class="tap-hint">Toque para ver detalhes</span>
+                                </div>
+                            </div>
+                            <div class="pizza-card-back">
+                                <h4>Caseiro</h4>
+                                <p class="ingredients">Pão com gergelim, blend de carnes, queijo, presunto, alface,
+                                    tomate e molho especial.</p>
+                                <span class="price-tag">A partir de R$ 20,00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pizza-card signature" data-type="burger" data-price1="25" data-price2="35"
+                        onclick="this.classList.toggle('flipped')">
+                        <div class="pizza-card-inner">
+                            <div class="pizza-card-front">
+                                <div class="pizza-card-image"><img src="images/artisan_burger_hero_1772481379318.png"
+                                        alt="Simplício"></div>
+                                <div class="pizza-card-info">
+                                    <h4>Simplício</h4><span class="tap-hint">Toque para ver detalhes</span>
+                                </div>
+                            </div>
+                            <div class="pizza-card-back">
+                                <h4>Simplício</h4>
+                                <p class="ingredients">Pão com gergelim, blend de carnes, queijo, presunto, bacon,
+                                    alface, tomate e molho especial.</p>
+                                <span class="price-tag">A partir de R$ 25,00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pizza-card" data-type="burger" data-price1="22" data-price2="32"
+                        onclick="this.classList.toggle('flipped')">
+                        <div class="pizza-card-inner">
+                            <div class="pizza-card-front">
+                                <div class="pizza-card-image"><img src="images/crispy_snacks_hero_1772481405707.png"
+                                        alt="Zoiudo"></div>
+                                <div class="pizza-card-info">
+                                    <h4>Zoiudo</h4><span class="tap-hint">Toque para ver detalhes</span>
+                                </div>
+                            </div>
+                            <div class="pizza-card-back">
+                                <h4>Zoiudo</h4>
+                                <p class="ingredients">Pão com gergelim, blend de carnes, queijo, presunto, ovo, alface,
+                                    tomate e molho especial.</p>
+                                <span class="price-tag">A partir de R$ 22,00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pizza-card" data-type="burger" data-price1="24" data-price2="34"
+                        onclick="this.classList.toggle('flipped')">
+                        <div class="pizza-card-inner">
+                            <div class="pizza-card-front">
+                                <div class="pizza-card-image"><img src="images/artisan_burger_hero_1772481379318.png"
+                                        alt="Defumado"></div>
+                                <div class="pizza-card-info">
+                                    <h4>Defumado</h4><span class="tap-hint">Toque para ver detalhes</span>
+                                </div>
+                            </div>
+                            <div class="pizza-card-back">
+                                <h4>Defumado</h4>
+                                <p class="ingredients">Pão com gergelim, blend de carnes, queijo, presunto, calabresa,
+                                    alface, tomate e molho especial.</p>
+                                <span class="price-tag">A partir de R$ 24,00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pizza-card" data-type="burger" data-price1="28" data-price2="38"
+                        onclick="this.classList.toggle('flipped')">
+                        <div class="pizza-card-inner">
+                            <div class="pizza-card-front">
+                                <div class="pizza-card-image"><img src="images/artisan_burger_hero_1772481379318.png"
+                                        alt="Bruto"></div>
+                                <div class="pizza-card-info">
+                                    <h4>Bruto</h4><span class="tap-hint">Toque para ver detalhes</span>
+                                </div>
+                            </div>
+                            <div class="pizza-card-back">
+                                <h4>Bruto</h4>
+                                <p class="ingredients">Pão com gergelim, blend de carnes, queijo, presunto, bacon, ovo,
+                                    tomate, alface e molho especial.</p>
+                                <span class="price-tag">A partir de R$ 28,00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Petiscos -->
+            <div class="menu-category" id="petiscos">
+                <div class="pizza-grid">
+                    <div class="pizza-card" data-type="snack" data-price1="15" data-price2="20"
+                        onclick="this.classList.toggle('flipped')">
+                        <div class="pizza-card-inner">
+                            <div class="pizza-card-front">
+                                <div class="pizza-card-image"><img src="images/artisan_burger_hero_1772481379318.png"
+                                        alt="Batata Frita"></div>
+                                <div class="pizza-card-info">
+                                    <h4>Batata Frita</h4><span class="tap-hint">Toque para ver detalhes</span>
+                                </div>
+                            </div>
+                            <div class="pizza-card-back">
+                                <h4>Batata Frita</h4>
+                                <p class="ingredients">Porção generosa de batatas selecionadas, fritas até ficarem
+                                    douradas e crocantes. O acompanhamento clássico.</p>
+                                <div class="match-tag">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M21 7L9 19L3.5 13.5L4.91 12.09L9 16.17L19.59 5.59L21 7Z" />
+                                    </svg>
+                                    Match Perfeito: Dom Bacon Premium
+                                </div>
+                                <span class="price-tag">A partir de R$ 15,00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pizza-card" data-type="snack" data-price1="18" data-price2="25"
+                        onclick="this.classList.toggle('flipped')">
+                        <div class="pizza-card-inner">
+                            <div class="pizza-card-front">
+                                <div class="pizza-card-image"><img src="images/artisan_burger_hero_1772481379318.png"
+                                        alt="Batata com Queijo e Bacon"></div>
+                                <div class="pizza-card-info">
+                                    <h4>Batata com Queijo e Bacon</h4><span class="tap-hint">Toque para ver
+                                        detalhes</span>
+                                </div>
+                            </div>
+                            <div class="pizza-card-back">
+                                <h4>Batata com Queijo e Bacon</h4>
+                                <p class="ingredients">Batatas crocantes com queijo derretido e pedaços de bacon.</p>
+                                <span class="price-tag">A partir de R$ 18,00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pizza-card" data-type="snack" data-price1="18" data-price2="26"
+                        onclick="this.classList.toggle('flipped')">
+                        <div class="pizza-card-inner">
+                            <div class="pizza-card-front">
+                                <div class="pizza-card-image"><img src="images/artisan_burger_hero_1772481379318.png"
+                                        alt="Iscas de Frango"></div>
+                                <div class="pizza-card-info">
+                                    <h4>Iscas de Frango</h4><span class="tap-hint">Toque para ver detalhes</span>
+                                </div>
+                            </div>
+                            <div class="pizza-card-back">
+                                <h4>Iscas de Frango</h4>
+                                <p class="ingredients">Tiras de frango empanadas e fritas, super crocantes.</p>
+                                <span class="price-tag">A partir de R$ 18,00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: var(--color-dark); padding: 40px 0; text-align: center; color: white;">
+        <div class="container">
+            <img src="logo.png" alt="Dom Simplício" style="height: 60px; margin-bottom: 20px;">
+            <p>&copy; 2026 Dom Simplício. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Seu Pedido</h3>
+            <button class="cart-close" onclick="closeCart()">&times;</button>
+        </div>
+        <div class="cart-body">
+            <div id="cartItems"></div>
+            <div id="beverageSection"></div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-totals">
+                <div>
+                    <span>Subtotal</span>
+                    <span id="cartSubtotal">R$ 0,00</span>
+                </div>
+                <div class="total-row">
+                    <span>Total</span>
+                    <span id="cartTotal">R$ 0,00</span>
+                </div>
+            </div>
+            <button class="btn-checkout" onclick="checkout()">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .006 5.408 0 12.049c0 2.123.554 4.197 1.608 6.013L0 24l6.135-1.61a11.83 11.83 0 005.911 1.586h.005c6.635 0 12.043-5.408 12.049-12.048A11.82 11.82 0 0020.464 3.49z" />
+                </svg>
+                Finalizar Pedido
+            </button>
+        </div>
+    </div>
+    <div class="cart-overlay" onclick="closeCart()"></div>
+
+    <!-- Modal Structure -->
+    <div class="modal" id="pizzaModal">
+        <div class="modal-content" id="pizzaModalContent"></div>
+    </div>
+
+    <script src="cart.js"></script>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+    </body>
+
+</html>

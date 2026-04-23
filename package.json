@@ -1,0 +1,11 @@
+{
+  "name": "mascarenhas-site",
+  "version": "1.0.0",
+  "description": "Mascarenhas Site",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx --yes live-server --port=3007"
+  },
+  "author": "",
+  "license": "ISC"
+}
