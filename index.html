@@ -8,7 +8,7 @@
     content="Dom Simplício Pizzaria e Hamburgueria - O sabor que vale a viagem. DF-250 Km 7, ao lado da Brassol. Delivery para Sobradinho e região.">
   <meta name="keywords" content="pizza, pizzaria, hamburgueria, Dom Simplício, DF-250, Sobradinho, delivery">
   <title>Dom Simplício | Pizzaria e Hamburgueria</title>
-  <link rel="stylesheet" href="styles.css?v=1.7">
+  <link rel="stylesheet" href="styles.css?v=1.8">
   <link rel="icon" type="image/png" href="logo.png">
   <script type="application/ld+json">
   {
@@ -134,8 +134,14 @@
         <button class="menu-tab active" onclick="showCategory(event, 'tradicionais')">
           Tradicionais <span class="price">R$38</span>
         </button>
-        <button class="menu-tab" onclick="showCategory(event, 'doces')">
-          Doces <span class="price">R$38</span>
+        <button class="menu-tab" onclick="showCategory(event, 'doces-tradicionais')">
+          Doces Trad. <span class="price">R$38</span>
+        </button>
+        <button class="menu-tab" onclick="showCategory(event, 'doces-especiais')">
+          Doces Esp. <span class="price">R$43</span>
+        </button>
+        <button class="menu-tab" onclick="showCategory(event, 'doces-vip')">
+          Doces VIP
         </button>
         <button class="menu-tab" onclick="showCategory(event, 'especiais')">
           Especiais <span class="price">R$43</span>
@@ -441,10 +447,10 @@
         </div>
       </div>
 
-      <!-- Doces -->
-      <div class="menu-category" id="doces">
+      <!-- Doces Tradicionais -->
+      <div class="menu-category" id="doces-tradicionais">
         <div class="pizza-grid">
-          <div class="pizza-card" data-type="pizza" data-price1="doces" onclick="this.classList.toggle('flipped')">
+          <div class="pizza-card" data-type="pizza" data-price1="doces-tradicionais" onclick="this.classList.toggle('flipped')">
             <div class="pizza-card-inner">
               <div class="pizza-card-front">
                 <div class="pizza-card-image">
@@ -462,7 +468,7 @@
               </div>
             </div>
           </div>
-          <div class="pizza-card" data-type="pizza" data-price1="doces" onclick="this.classList.toggle('flipped')">
+          <div class="pizza-card" data-type="pizza" data-price1="doces-tradicionais" onclick="this.classList.toggle('flipped')">
             <div class="pizza-card-inner">
               <div class="pizza-card-front">
                 <div class="pizza-card-image">
@@ -480,7 +486,7 @@
               </div>
             </div>
           </div>
-          <div class="pizza-card" data-type="pizza" data-price1="doces" onclick="this.classList.toggle('flipped')">
+          <div class="pizza-card" data-type="pizza" data-price1="doces-tradicionais" onclick="this.classList.toggle('flipped')">
             <div class="pizza-card-inner">
               <div class="pizza-card-front">
                 <div class="pizza-card-image">
@@ -498,7 +504,7 @@
               </div>
             </div>
           </div>
-          <div class="pizza-card" data-type="pizza" data-price1="doces" onclick="this.classList.toggle('flipped')">
+          <div class="pizza-card" data-type="pizza" data-price1="doces-tradicionais" onclick="this.classList.toggle('flipped')">
             <div class="pizza-card-inner">
               <div class="pizza-card-front">
                 <div class="pizza-card-image">
@@ -516,8 +522,13 @@
               </div>
             </div>
           </div>
-          <!-- Doces Especiais (43,00) -->
-          <div class="pizza-card" data-type="pizza" data-price1="doces" onclick="this.classList.toggle('flipped')">
+        </div>
+      </div>
+
+      <!-- Doces Especiais -->
+      <div class="menu-category" id="doces-especiais">
+        <div class="pizza-grid">
+          <div class="pizza-card" data-type="pizza" data-price1="doces-especiais" onclick="this.classList.toggle('flipped')">
             <div class="pizza-card-inner">
               <div class="pizza-card-front">
                 <div class="pizza-card-image">
@@ -535,7 +546,7 @@
               </div>
             </div>
           </div>
-          <div class="pizza-card" data-type="pizza" data-price1="doces" onclick="this.classList.toggle('flipped')">
+          <div class="pizza-card" data-type="pizza" data-price1="doces-especiais" onclick="this.classList.toggle('flipped')">
             <div class="pizza-card-inner">
               <div class="pizza-card-front">
                 <div class="pizza-card-image">
@@ -553,7 +564,7 @@
               </div>
             </div>
           </div>
-          <div class="pizza-card" data-type="pizza" data-price1="doces" onclick="this.classList.toggle('flipped')">
+          <div class="pizza-card" data-type="pizza" data-price1="doces-especiais" onclick="this.classList.toggle('flipped')">
             <div class="pizza-card-inner">
               <div class="pizza-card-front">
                 <div class="pizza-card-image">
@@ -570,6 +581,19 @@
                 <span class="price-tag">R$ 43,00</span>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Doces VIP -->
+      <div class="menu-category" id="doces-vip">
+        <div class="pizza-grid" style="display: flex; justify-content: center; align-items: center; min-height: 200px; width: 100%;">
+          <div style="text-align: center; color: var(--color-gray); padding: 2rem; width: 100%;">
+            <svg viewBox="0 0 24 24" style="width: 48px; height: 48px; fill: var(--color-primary); margin-bottom: 1rem; opacity: 0.5;">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+            </svg>
+            <h3>Em Desenvolvimento</h3>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Nossas receitas exclusivas de pizzas doces VIP estão sendo preparadas com carinho.</p>
           </div>
         </div>
       </div>

@@ -6,10 +6,10 @@
 let cart = [];
 let cartOpen = false;
 
-// Pizza Data (prices by category)
 const pizzaPrices = {
   tradicionais: 38,
-  doces: 33,
+  'doces-tradicionais': 38,
+  'doces-especiais': 43,
   especiais: 43,
   vip: 46
 };
