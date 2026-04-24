@@ -385,6 +385,21 @@ function showCategory(event, categoryId) {
   const targetCategory = document.getElementById(categoryId);
   if (targetCategory) {
     targetCategory.classList.add('active');
+
+    // Scroll to top of menu section
+    const menuSection = document.getElementById('cardapio');
+    if (menuSection) {
+      const offset = 100; // Account for fixed navbar
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = menuSection.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
   }
 
   // Reset all flipped cards
