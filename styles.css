@@ -1995,6 +1995,19 @@ a {
         overflow-y: auto !important;
         gap: 12px !important;
         display: flex !important;
+        
+        /* Hidden by default, toggled by JS */
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    .menu-tabs.visible {
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+        left: 0 !important;
     }
 
     .menu-tabs::-webkit-scrollbar {
@@ -2039,7 +2052,10 @@ a {
     /* Give space for the sidebar menu ONLY if the page has it */
     .has-sidebar-menu .container {
         padding-left: 80px !important;
-        padding-right: 10px !important;
+        padding-right: 15px !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        box-sizing: border-box !important;
     }
 }
 
@@ -2048,8 +2064,9 @@ a {
     .pizza-grid {
         grid-template-columns: repeat(2, 1fr) !important;
         display: grid !important;
-        gap: 10px !important;
+        gap: 8px !important;
         padding: 0 !important;
+        width: 100% !important;
     }
 
     .pizza-card {
@@ -2118,4 +2135,16 @@ a {
 
 .pizza-grid {
     overflow: visible !important;
+}
+
+/* Global Fixes */
+html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    position: relative !important;
+}
+
+.hero {
+    background-size: cover !important;
+    background-position: center !important;
 }

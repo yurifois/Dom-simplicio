@@ -8,7 +8,7 @@
     content="Dom Simplício Pizzaria e Hamburgueria - O sabor que vale a viagem. DF-250 Km 7, ao lado da Brassol. Delivery para Sobradinho e região.">
   <meta name="keywords" content="pizza, pizzaria, hamburgueria, Dom Simplício, DF-250, Sobradinho, delivery">
   <title>Dom Simplício | Pizzaria e Hamburgueria</title>
-  <link rel="stylesheet" href="styles.css?v=1.1">
+  <link rel="stylesheet" href="styles.css?v=1.2">
   <link rel="icon" type="image/png" href="logo.png">
   <script type="application/ld+json">
   {
@@ -1036,6 +1036,24 @@
         }
       });
     });
+
+    // Sidebar Visibility Observer
+    const sidebarObserver = new IntersectionObserver((entries) => {
+      const sidebar = document.querySelector('.menu-tabs');
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          sidebar.classList.add('visible');
+        } else {
+          sidebar.classList.remove('visible');
+        }
+      });
+    }, {
+      threshold: 0.1, // Show when 10% of the section is visible
+      rootMargin: "-50px 0px" // Trigger slightly before/after to account for padding
+    });
+
+    const menuSection = document.querySelector('.menu-section');
+    if (menuSection) sidebarObserver.observe(menuSection);
 
     // Lazy loading handler
     document.querySelectorAll('img[loading="lazy"]').forEach(img => {
