@@ -426,4 +426,20 @@ function setupProductCards() {
 document.addEventListener('DOMContentLoaded', () => {
   initCart();
   setupProductCards();
+
+  // Fechar cards e modal ao clicar fora
+  window.addEventListener('click', (e) => {
+    // Se não clicou em um card ou em um botão de adicionar, desvira todos os cards
+    if (!e.target.closest('.pizza-card') && !e.target.closest('.btn-add-to-cart')) {
+      document.querySelectorAll('.pizza-card.flipped').forEach(card => {
+        card.classList.remove('flipped');
+      });
+    }
+
+    // Fechar modal ao clicar no fundo escuro (overlay)
+    const modal = document.getElementById('pizzaModal');
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
 });
