@@ -74,9 +74,21 @@ function openModal(id, name, ingredients, type, price1, price2) {
         </div>
       </div>
     `;
-  } else if (type === 'burger') {
-    basePrice = parseFloat(price1);
+    const artPrice = 4; // Diferença para carne artesanal
     optionsHtml = `
+      <div class="modal-section">
+        <label>Tipo de Carne:</label>
+        <div class="border-options">
+          <label class="border-option">
+            <input type="radio" name="meatOption" value="industrial" data-extra="0" data-label="Carne Tradicional" checked onchange="updateModalTotal()">
+            <span class="border-label">Tradicional <em>Incluso</em></span>
+          </label>
+          <label class="border-option">
+            <input type="radio" name="meatOption" value="artesanal" data-extra="${artPrice}" data-label="Carne Artesanal" onchange="updateModalTotal()">
+            <span class="border-label">Artesanal <em>+R$ ${artPrice},00</em></span>
+          </label>
+        </div>
+      </div>
       <div class="modal-section">
         <label>Escolha a opção:</label>
         <div class="border-options">
@@ -181,6 +193,12 @@ function updateModalTotal() {
     price = parseFloat(dataPrice) || 0;
   }
 
+  // Adiciona custo da carne artesanal se for hambúrguer
+  const meatOption = document.querySelector('input[name="meatOption"]:checked');
+  if (meatOption) {
+    price += parseFloat(meatOption.getAttribute('data-extra')) || 0;
+  }
+
   const total = price * qty;
   const totalEl = document.getElementById('modalTotalPrice');
   if (totalEl) {
@@ -194,8 +212,17 @@ function addProductToCart(name, type) {
 
   if (!selectedOption) return;
 
-  const price = parseFloat(selectedOption.getAttribute('data-price'));
-  const optionName = selectedOption.getAttribute('data-option');
+  let price = parseFloat(selectedOption.getAttribute('data-price'));
+  let optionName = selectedOption.getAttribute('data-option');
+
+  // Adiciona opção de carne se existir
+  const meatOption = document.querySelector('input[name="meatOption"]:checked');
+  if (meatOption) {
+    const extra = parseFloat(meatOption.getAttribute('data-extra'));
+    const meatLabel = meatOption.getAttribute('data-label');
+    price += extra;
+    optionName = `${meatLabel} | ${optionName}`;
+  }
 
   const cartItem = {
     id: Date.now(),

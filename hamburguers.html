@@ -20,15 +20,6 @@
           "name": "Hambúrgueres Tradicionais",
           "description": "Clássicos suculentos feitos na hora."
         },
-        {
-          "@type": "MenuSection",
-          "name": "Hambúrgueres Artesanais",
-          "description": "Receitas autorais com ingredientes premium."
-        },
-        {
-          "@type": "MenuSection",
-          "name": "Petiscos",
-          "description": "Porções crocantes para compartilhar."
         }
       ]
     }
@@ -79,10 +70,7 @@
                 <p>Hambúrgueres suculentos preparados na hora</p>
             </div>
 
-            <div class="menu-tabs">
-                <button class="menu-tab active" onclick="showCategory(event, 'tradicionais')">Tradicionais</button>
-                <button class="menu-tab" onclick="showCategory(event, 'artesanais')">Artesanais</button>
-                <button class="menu-tab" onclick="showCategory(event, 'petiscos')">Petiscos</button>
+                <button class="menu-tab active">Nossos Hambúrgueres</button>
             </div>
 
             <!-- Tradicionais -->
@@ -223,184 +211,7 @@
                 </div>
             </div>
 
-            <!-- Artesanais -->
-            <div class="menu-category" id="artesanais">
-                <div class="pizza-grid">
-                    <div class="pizza-card" data-type="burger" data-price1="18" data-price2="28"
-                        onclick="this.classList.toggle('flipped')">
-                        <div class="pizza-card-inner">
-                            <div class="pizza-card-front">
-                                <div class="pizza-card-image"><img src="images/artisan_burger_hero_1772481379318.png"
-                                        alt="Tradicional"></div>
-                                <div class="pizza-card-info">
-                                    <h4>Tradicional</h4><span class="tap-hint">Toque para ver detalhes</span>
-                                </div>
-                            </div>
-                            <div class="pizza-card-back">
-                                <h4>Tradicional</h4>
-                                <p class="ingredients">Pão com gergelim, blend de carnes, alface, tomate e molho
-                                    especial.</p>
-                                <span class="price-tag">A partir de R$ 18,00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pizza-card" data-type="burger" data-price1="20" data-price2="30"
-                        onclick="this.classList.toggle('flipped')">
-                        <div class="pizza-card-inner">
-                            <div class="pizza-card-front">
-                                <div class="pizza-card-image"><img src="images/artisan_burger_hero_1772481379318.png"
-                                        alt="Caseiro"></div>
-                                <div class="pizza-card-info">
-                                    <h4>Caseiro</h4><span class="tap-hint">Toque para ver detalhes</span>
-                                </div>
-                            </div>
-                            <div class="pizza-card-back">
-                                <h4>Caseiro</h4>
-                                <p class="ingredients">Pão com gergelim, blend de carnes, queijo, presunto, alface,
-                                    tomate e molho especial.</p>
-                                <span class="price-tag">A partir de R$ 20,00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pizza-card signature" data-type="burger" data-price1="25" data-price2="35"
-                        onclick="this.classList.toggle('flipped')">
-                        <div class="pizza-card-inner">
-                            <div class="pizza-card-front">
-                                <div class="pizza-card-image"><img src="images/artisan_burger_hero_1772481379318.png"
-                                        alt="Simplício"></div>
-                                <div class="pizza-card-info">
-                                    <h4>Simplício</h4><span class="tap-hint">Toque para ver detalhes</span>
-                                </div>
-                            </div>
-                            <div class="pizza-card-back">
-                                <h4>Simplício</h4>
-                                <p class="ingredients">Pão com gergelim, blend de carnes, queijo, presunto, bacon,
-                                    alface, tomate e molho especial.</p>
-                                <span class="price-tag">A partir de R$ 25,00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pizza-card" data-type="burger" data-price1="22" data-price2="32"
-                        onclick="this.classList.toggle('flipped')">
-                        <div class="pizza-card-inner">
-                            <div class="pizza-card-front">
-                                <div class="pizza-card-image"><img src="images/crispy_snacks_hero_1772481405707.png"
-                                        alt="Zoiudo"></div>
-                                <div class="pizza-card-info">
-                                    <h4>Zoiudo</h4><span class="tap-hint">Toque para ver detalhes</span>
-                                </div>
-                            </div>
-                            <div class="pizza-card-back">
-                                <h4>Zoiudo</h4>
-                                <p class="ingredients">Pão com gergelim, blend de carnes, queijo, presunto, ovo, alface,
-                                    tomate e molho especial.</p>
-                                <span class="price-tag">A partir de R$ 22,00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pizza-card" data-type="burger" data-price1="24" data-price2="34"
-                        onclick="this.classList.toggle('flipped')">
-                        <div class="pizza-card-inner">
-                            <div class="pizza-card-front">
-                                <div class="pizza-card-image"><img src="images/artisan_burger_hero_1772481379318.png"
-                                        alt="Defumado"></div>
-                                <div class="pizza-card-info">
-                                    <h4>Defumado</h4><span class="tap-hint">Toque para ver detalhes</span>
-                                </div>
-                            </div>
-                            <div class="pizza-card-back">
-                                <h4>Defumado</h4>
-                                <p class="ingredients">Pão com gergelim, blend de carnes, queijo, presunto, calabresa,
-                                    alface, tomate e molho especial.</p>
-                                <span class="price-tag">A partir de R$ 24,00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pizza-card" data-type="burger" data-price1="28" data-price2="38"
-                        onclick="this.classList.toggle('flipped')">
-                        <div class="pizza-card-inner">
-                            <div class="pizza-card-front">
-                                <div class="pizza-card-image"><img src="images/artisan_burger_hero_1772481379318.png"
-                                        alt="Bruto"></div>
-                                <div class="pizza-card-info">
-                                    <h4>Bruto</h4><span class="tap-hint">Toque para ver detalhes</span>
-                                </div>
-                            </div>
-                            <div class="pizza-card-back">
-                                <h4>Bruto</h4>
-                                <p class="ingredients">Pão com gergelim, blend de carnes, queijo, presunto, bacon, ovo,
-                                    tomate, alface e molho especial.</p>
-                                <span class="price-tag">A partir de R$ 28,00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Petiscos -->
-            <div class="menu-category" id="petiscos">
-                <div class="pizza-grid">
-                    <div class="pizza-card" data-type="snack" data-price1="15" data-price2="20"
-                        onclick="this.classList.toggle('flipped')">
-                        <div class="pizza-card-inner">
-                            <div class="pizza-card-front">
-                                <div class="pizza-card-image"><img src="images/artisan_burger_hero_1772481379318.png"
-                                        alt="Batata Frita"></div>
-                                <div class="pizza-card-info">
-                                    <h4>Batata Frita</h4><span class="tap-hint">Toque para ver detalhes</span>
-                                </div>
-                            </div>
-                            <div class="pizza-card-back">
-                                <h4>Batata Frita</h4>
-                                <p class="ingredients">Porção generosa de batatas selecionadas, fritas até ficarem
-                                    douradas e crocantes. O acompanhamento clássico.</p>
-                                <div class="match-tag">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M21 7L9 19L3.5 13.5L4.91 12.09L9 16.17L19.59 5.59L21 7Z" />
-                                    </svg>
-                                    Match Perfeito: Dom Bacon Premium
-                                </div>
-                                <span class="price-tag">A partir de R$ 15,00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pizza-card" data-type="snack" data-price1="18" data-price2="25"
-                        onclick="this.classList.toggle('flipped')">
-                        <div class="pizza-card-inner">
-                            <div class="pizza-card-front">
-                                <div class="pizza-card-image"><img src="images/artisan_burger_hero_1772481379318.png"
-                                        alt="Batata com Queijo e Bacon"></div>
-                                <div class="pizza-card-info">
-                                    <h4>Batata com Queijo e Bacon</h4><span class="tap-hint">Toque para ver
-                                        detalhes</span>
-                                </div>
-                            </div>
-                            <div class="pizza-card-back">
-                                <h4>Batata com Queijo e Bacon</h4>
-                                <p class="ingredients">Batatas crocantes com queijo derretido e pedaços de bacon.</p>
-                                <span class="price-tag">A partir de R$ 18,00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pizza-card" data-type="snack" data-price1="18" data-price2="26"
-                        onclick="this.classList.toggle('flipped')">
-                        <div class="pizza-card-inner">
-                            <div class="pizza-card-front">
-                                <div class="pizza-card-image"><img src="images/artisan_burger_hero_1772481379318.png"
-                                        alt="Iscas de Frango"></div>
-                                <div class="pizza-card-info">
-                                    <h4>Iscas de Frango</h4><span class="tap-hint">Toque para ver detalhes</span>
-                                </div>
-                            </div>
-                            <div class="pizza-card-back">
-                                <h4>Iscas de Frango</h4>
-                                <p class="ingredients">Tiras de frango empanadas e fritas, super crocantes.</p>
-                                <span class="price-tag">A partir de R$ 18,00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -452,7 +263,9 @@
     <script>
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.getElementById('menuToggle');
             navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
         }
     </script>
     </body>

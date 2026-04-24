@@ -996,7 +996,10 @@
   <script>
     // Mobile Menu Toggle
     function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('active');
+      const navLinks = document.getElementById('navLinks');
+      const menuToggle = document.getElementById('menuToggle');
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('active');
     }
 
     // Navbar scroll effect
