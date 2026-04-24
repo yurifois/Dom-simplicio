@@ -1278,55 +1278,9 @@ a {
         display: flex;
     }
 
-    .hero-ctas {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .cta-btn {
-        width: 100%;
-        max-width: 320px;
-    }
-
-    .location-content {
-        grid-template-columns: 1fr;
-    }
-
-    .map-container {
-        height: 300px;
-    }
-
-    .pizza-card {
-        height: 300px;
-    }
-
-    .whatsapp-float span {
-        display: none;
-    }
-
-    .whatsapp-float {
-        padding: var(--space-md);
-        border-radius: 50%;
-    }
 }
 
 @media (max-width: 480px) {
-    .menu-tabs {
-        justify-content: flex-start;
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        padding-bottom: var(--space-sm);
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .menu-tab {
-        flex-shrink: 0;
-    }
-
-    .pizza-grid {
-        grid-template-columns: 1fr;
-    }
-
     .delivery-areas-grid {
         justify-content: flex-start;
         padding: 0 var(--space-md);
@@ -2015,4 +1969,153 @@ a {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* ===================================
+   Mobile Specific Enhancements
+   =================================== */
+
+/* Fixed Sidebar Menu for Mobile */
+@media (max-width: 768px) {
+    .menu-tabs {
+        position: fixed !important;
+        left: 0 !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        flex-direction: column !important;
+        background: rgba(26, 26, 26, 0.9) !important;
+        padding: 15px 8px !important;
+        border-radius: 0 20px 20px 0 !important;
+        z-index: 1002 !important;
+        backdrop-filter: blur(12px) !important;
+        box-shadow: 4px 0 25px rgba(0, 0, 0, 0.5) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-left: none !important;
+        max-height: 80vh !important;
+        overflow-y: auto !important;
+        gap: 12px !important;
+        display: flex !important;
+    }
+
+    .menu-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .menu-tab {
+        padding: 10px !important;
+        font-size: 0.7rem !important;
+        border-radius: 12px !important;
+        width: 65px !important;
+        height: 65px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        line-height: 1.2 !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: rgba(255, 255, 255, 0.8) !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    .menu-tab.active {
+        background: var(--gradient-terracotta) !important;
+        transform: scale(1.1) !important;
+        z-index: 2 !important;
+        color: white !important;
+    }
+
+    .menu-tab .price {
+        display: block !important;
+        margin-left: 0 !important;
+        margin-top: 4px !important;
+        font-size: 0.65rem !important;
+        padding: 2px 4px !important;
+        background: rgba(0, 0, 0, 0.3) !important;
+        border-radius: 4px !important;
+    }
+
+    /* Give space for the sidebar menu ONLY if the page has it */
+    .has-sidebar-menu .container {
+        padding-left: 80px !important;
+        padding-right: 10px !important;
+    }
+}
+
+/* 2-Column Grid and Reduced Card Sizes - High Priority */
+@media (max-width: 768px) {
+    .pizza-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        display: grid !important;
+        gap: 10px !important;
+        padding: 0 !important;
+    }
+
+    .pizza-card {
+        height: 220px !important; 
+    }
+
+    .pizza-card-image {
+        height: 110px !important; 
+    }
+
+    .pizza-card-info {
+        padding: 5px !important;
+    }
+
+    .pizza-card-info h4 {
+        font-size: 0.85rem !important;
+        margin-bottom: 2px !important;
+    }
+
+    .pizza-card-info .tap-hint {
+        font-size: 0.6rem !important;
+    }
+
+    /* Back of card adjustments for mobile */
+    .pizza-card-back h4 {
+        font-size: 0.95rem !important;
+        padding: 6px !important;
+    }
+
+    .pizza-card-back .ingredients {
+        font-size: 0.65rem !important;
+        padding: 4px 6px !important;
+        line-height: 1.2 !important;
+    }
+
+    .pizza-card-back .price-tag {
+        font-size: 0.85rem !important;
+        padding: 5px !important;
+    }
+
+    .pizza-card-back .btn-add-to-cart {
+        height: 35px !important;
+        font-size: 0.7rem !important;
+        padding: 0 5px !important;
+        border-radius: 0 !important;
+    }
+    
+    .match-tag {
+        display: none !important; 
+    }
+}
+
+/* Card Interaction: Expansion on Click/Flip */
+.pizza-card {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.3s step-end !important;
+}
+
+.pizza-card:active {
+    transform: scale(0.96) !important;
+}
+
+.pizza-card.flipped {
+    transform: scale(1.12) !important;
+    z-index: 1005 !important; 
+}
+
+.pizza-grid {
+    overflow: visible !important;
 }
