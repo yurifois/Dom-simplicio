@@ -56,25 +56,14 @@ function openModal(id, name, ingredients, type, price1, price2) {
   const modal = document.getElementById('pizzaModal');
   const modalContent = document.getElementById('pizzaModalContent');
 
+  modal.setAttribute('data-current-type', type);
+
   let optionsHtml = '';
   let basePrice = 0;
 
-  if (type === 'pizza') {
-    basePrice = pizzaPrices[price1] || 38;
-    optionsHtml = `
-      <div class="modal-section">
-        <label>Borda:</label>
-        <div class="border-options">
-          ${borderOptions.map(opt => `
-            <label class="border-option">
-              <input type="radio" name="productOption" value="${opt.id}" data-price="${basePrice + opt.price}" data-option="${opt.name}" ${opt.id === 'sem' ? 'checked' : ''} onchange="updateModalTotal()">
-              <span class="border-label">${opt.name} ${opt.price > 0 ? `<em>+R$${opt.price}</em>` : ''}</span>
-            </label>
-          `).join('')}
-        </div>
-      </div>
-    `;
+  if (type === 'burger' || type === 'hamburguer') {
     const artPrice = 0; // Troca gratuita para carne artesanal
+    basePrice = parseFloat(price1) || 0;
     optionsHtml = `
       <div class="modal-section">
         <label>Tipo de Carne:</label>
@@ -103,8 +92,23 @@ function openModal(id, name, ingredients, type, price1, price2) {
         </div>
       </div>
     `;
+  } else if (type === 'pizza') {
+    basePrice = pizzaPrices[price1] || 38;
+    optionsHtml = `
+      <div class="modal-section">
+        <label>Borda:</label>
+        <div class="border-options">
+          ${borderOptions.map(opt => `
+            <label class="border-option">
+              <input type="radio" name="productOption" value="${opt.id}" data-price="${basePrice + opt.price}" data-option="${opt.name}" ${opt.id === 'sem' ? 'checked' : ''} onchange="updateModalTotal()">
+              <span class="border-label">${opt.name} ${opt.price > 0 ? `<em>+R$${opt.price}</em>` : ''}</span>
+            </label>
+          `).join('')}
+        </div>
+      </div>
+    `;
   } else if (type === 'snack') {
-    basePrice = parseFloat(price1);
+    basePrice = parseFloat(price1) || 0;
     optionsHtml = `
       <div class="modal-section">
         <label>Escolha o tamanho:</label>
@@ -121,7 +125,7 @@ function openModal(id, name, ingredients, type, price1, price2) {
       </div>
     `;
   } else if (type === 'beverage') {
-    basePrice = parseFloat(price1);
+    basePrice = parseFloat(price1) || 0;
     optionsHtml = `
       <div class="modal-section">
         <p>Bebida gelada pronta para consumo.</p>
@@ -181,11 +185,12 @@ function changeQty(delta) {
 }
 
 function updateModalTotal() {
+  const modal = document.getElementById('pizzaModal');
   const qtyInput = document.getElementById('productQty');
-  if (!qtyInput) return;
+  if (!qtyInput || !modal) return;
 
   const qty = parseInt(qtyInput.value) || 1;
-  const selectedOption = document.querySelector('input[name="productOption"]:checked');
+  const selectedOption = modal.querySelector('input[name="productOption"]:checked');
 
   let price = 0;
   if (selectedOption) {
@@ -194,7 +199,7 @@ function updateModalTotal() {
   }
 
   // Adiciona custo da carne artesanal se for hambúrguer
-  const meatOption = document.querySelector('input[name="meatOption"]:checked');
+  const meatOption = modal.querySelector('input[name="meatOption"]:checked');
   if (meatOption) {
     price += parseFloat(meatOption.getAttribute('data-extra')) || 0;
   }
@@ -207,18 +212,25 @@ function updateModalTotal() {
 }
 
 function addProductToCart(name, type) {
-  const qty = parseInt(document.getElementById('productQty').value);
-  const selectedOption = document.querySelector('input[name="productOption"]:checked');
+  const modal = document.getElementById('pizzaModal');
+  const qtyInput = document.getElementById('productQty');
+  if (!qtyInput || !modal) return;
 
-  if (!selectedOption) return;
+  const qty = parseInt(qtyInput.value);
+  const selectedOption = modal.querySelector('input[name="productOption"]:checked');
 
-  let price = parseFloat(selectedOption.getAttribute('data-price'));
+  if (!selectedOption) {
+    alert("Por favor, selecione uma opção.");
+    return;
+  }
+
+  let price = parseFloat(selectedOption.getAttribute('data-price')) || 0;
   let optionName = selectedOption.getAttribute('data-option');
 
   // Adiciona opção de carne se existir
-  const meatOption = document.querySelector('input[name="meatOption"]:checked');
+  const meatOption = modal.querySelector('input[name="meatOption"]:checked');
   if (meatOption) {
-    const extra = parseFloat(meatOption.getAttribute('data-extra'));
+    const extra = parseFloat(meatOption.getAttribute('data-extra')) || 0;
     const meatLabel = meatOption.getAttribute('data-label');
     price += extra;
     optionName = `${meatLabel} | ${optionName}`;
