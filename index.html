@@ -8,7 +8,7 @@
     content="Dom Simplício Pizzaria e Hamburgueria - O sabor que vale a viagem. DF-250 Km 7, ao lado da Brassol. Delivery para Sobradinho e região.">
   <meta name="keywords" content="pizza, pizzaria, hamburgueria, Dom Simplício, DF-250, Sobradinho, delivery">
   <title>Dom Simplício | Pizzaria e Hamburgueria</title>
-  <link rel="stylesheet" href="styles.css?v=1.6">
+  <link rel="stylesheet" href="styles.css?v=1.7">
   <link rel="icon" type="image/png" href="logo.png">
   <script type="application/ld+json">
   {
@@ -114,6 +114,7 @@
         <span class="delivery-tag">Novo Horizonte</span>
         <span class="delivery-tag">Paranoá</span>
         <span class="delivery-tag">Paranoá Park</span>
+        <span class="delivery-tag">Itapoã</span>
         <span class="delivery-tag">Itapoã Park</span>
       </div>
     </div>
@@ -134,7 +135,7 @@
           Tradicionais <span class="price">R$38</span>
         </button>
         <button class="menu-tab" onclick="showCategory(event, 'doces')">
-          Doces <span class="price">R$33</span>
+          Doces <span class="price">R$38</span>
         </button>
         <button class="menu-tab" onclick="showCategory(event, 'especiais')">
           Especiais <span class="price">R$43</span>
@@ -288,6 +289,25 @@
               <div class="pizza-card-back">
                 <h4>Presunto</h4>
                 <p class="ingredients">Mussarela, presunto e orégano</p>
+                <span class="price-tag">R$ 38,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="pizza-card" data-type="pizza" data-price1="tradicionais"
+            onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/media__1776978051244.png" alt="Pizza Bacon" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Bacon</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Bacon</h4>
+                <p class="ingredients">Mussarela, bacon e orégano</p>
                 <span class="price-tag">R$ 38,00</span>
               </div>
             </div>
@@ -474,10 +494,29 @@
               <div class="pizza-card-back">
                 <h4>Chocolate</h4>
                 <p class="ingredients">Mussarela e chocolate ao leite</p>
-                <span class="price-tag">R$ 33,00</span>
+                <span class="price-tag">R$ 38,00</span>
               </div>
             </div>
           </div>
+          <div class="pizza-card" data-type="pizza" data-price1="doces" onclick="this.classList.toggle('flipped')">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-card-image">
+                  <img src="images/media__1776977498108.jpg" alt="Pizza Chocolate Branco" loading="lazy">
+                </div>
+                <div class="pizza-card-info">
+                  <h4>Chocolate Branco</h4>
+                  <span class="tap-hint">Toque para ver ingredientes</span>
+                </div>
+              </div>
+              <div class="pizza-card-back">
+                <h4>Chocolate Branco</h4>
+                <p class="ingredients">Mussarela e chocolate branco premium</p>
+                <span class="price-tag">R$ 38,00</span>
+              </div>
+            </div>
+          </div>
+          <!-- Doces Especiais (43,00) -->
           <div class="pizza-card" data-type="pizza" data-price1="doces" onclick="this.classList.toggle('flipped')">
             <div class="pizza-card-inner">
               <div class="pizza-card-front">
@@ -492,7 +531,7 @@
               <div class="pizza-card-back">
                 <h4>Romeu e Julieta</h4>
                 <p class="ingredients">Mussarela, goiabada e catupiry</p>
-                <span class="price-tag">R$ 38,00</span>
+                <span class="price-tag">R$ 43,00</span>
               </div>
             </div>
           </div>
@@ -510,7 +549,7 @@
               <div class="pizza-card-back">
                 <h4>Beijinho</h4>
                 <p class="ingredients">Mussarela, coco ralado e leite condensado</p>
-                <span class="price-tag">R$ 38,00</span>
+                <span class="price-tag">R$ 43,00</span>
               </div>
             </div>
           </div>
@@ -528,7 +567,7 @@
               <div class="pizza-card-back">
                 <h4>Prestígio</h4>
                 <p class="ingredients">Mussarela, chocolate e coco ralado</p>
-                <span class="price-tag">R$ 38,00</span>
+                <span class="price-tag">R$ 43,00</span>
               </div>
             </div>
           </div>
@@ -538,20 +577,21 @@
       <!-- Especiais -->
       <div class="menu-category" id="especiais">
         <div class="pizza-grid">
+          <!-- Especiais (43,00) -->
           <div class="pizza-card" data-type="pizza" data-price1="especiais" onclick="this.classList.toggle('flipped')">
             <div class="pizza-card-inner">
               <div class="pizza-card-front">
                 <div class="pizza-card-image">
-                  <img src="images/media__1776978051244.png" alt="Pizza Bacon" loading="lazy">
+                  <img src="images/media__1776978612392.jpg" alt="Pizza Carbonara" loading="lazy">
                 </div>
                 <div class="pizza-card-info">
-                  <h4>Bacon</h4>
+                  <h4>Carbonara</h4>
                   <span class="tap-hint">Toque para ver ingredientes</span>
                 </div>
               </div>
               <div class="pizza-card-back">
-                <h4>Bacon</h4>
-                <p class="ingredients">Mussarela, bacon e orégano</p>
+                <h4>Carbonara</h4>
+                <p class="ingredients">Mussarela, frango, milho, bacon, calabresa, catupiry, batata palha e orégano</p>
                 <span class="price-tag">R$ 43,00</span>
               </div>
             </div>
@@ -732,15 +772,15 @@
             <div class="pizza-card-inner">
               <div class="pizza-card-front">
                 <div class="pizza-card-image">
-                  <img src="images/media__1776978896673.jpg" alt="Pizza Carne Seca VIP" loading="lazy">
+                  <img src="images/media__1776978896673.jpg" alt="Pizza Carne Seca a Moda do Cheff" loading="lazy">
                 </div>
                 <div class="pizza-card-info">
-                  <h4>Carne Seca VIP</h4>
+                  <h4>Carne Seca a Moda do Cheff</h4>
                   <span class="tap-hint">Toque para ver ingredientes</span>
                 </div>
               </div>
               <div class="pizza-card-back">
-                <h4>Carne Seca VIP</h4>
+                <h4 id="pizza-carne-seca-vip">Carne Seca a Moda do Cheff</h4>
                 <p class="ingredients">Mussarela, carne seca, pimentão, tomate, cebola e orégano</p>
                 <span class="price-tag">R$ 46,00</span>
               </div>
