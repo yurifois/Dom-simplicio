@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Dom Simplício Hamburgueria - Hambúrgueres artesanais e combos deliciosos.">
     <title>Hambúrgueres | Dom Simplício</title>
-    <link rel="stylesheet" href="styles.css?v=1.4">
+    <link rel="stylesheet" href="styles.css?v=1.5">
     <link rel="icon" type="image/png" href="logo.png">
     <script type="application/ld+json">
     {
@@ -61,12 +61,25 @@
         <span class="cart-count">0</span>
     </button>
 
-    <section class="menu-section" style="padding-top: 120px; min-height: 100vh;">
+    <section class="menu-section has-sidebar-menu" id="menu-burgers" style="padding-top: 120px; min-height: 100vh;">
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Nossos Hambúrgueres</span>
                 <h2>Tradicionais & Artesanais</h2>
                 <p>Hambúrgueres suculentos preparados na hora</p>
+            </div>
+
+            <!-- Menu Tabs -->
+            <div class="menu-tabs">
+                <button class="menu-tab nav-tab" onclick="window.location.href='index.html#cardapio'">
+                    Pizzas
+                </button>
+                <button class="menu-tab active">
+                    Burgers
+                </button>
+                <button class="menu-tab nav-tab" onclick="window.location.href='bebidas.html'">
+                    Bebidas
+                </button>
             </div>
 
             <div class="category-info">
@@ -270,7 +283,25 @@
             navLinks.classList.toggle('active');
             menuToggle.classList.toggle('active');
         }
+
+        // Sidebar Visibility Logic
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.body.classList.add('has-sidebar-menu');
+                } else {
+                    document.body.classList.remove('has-sidebar-menu');
+                }
+            });
+        }, observerOptions);
+
+        const menuSection = document.getElementById('menu-burgers');
+        if (menuSection) observer.observe(menuSection);
     </script>
-    </body>
+</body>
 
 </html>
