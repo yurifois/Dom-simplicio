@@ -2113,6 +2113,17 @@ a {
         padding: var(--space-sm) !important;
         font-size: 0.9rem !important;
     }
+
+    /* Remove stray line by hiding redundant cart toggle on mobile */
+    .cart-toggle {
+        display: none !important;
+    }
+
+    /* Style for navigation tabs in the sidebar */
+    .menu-tab.nav-tab {
+        background: rgba(255, 255, 255, 0.1) !important;
+        border: 1px dashed rgba(255, 255, 255, 0.3) !important;
+    }
 }
 
 /* 2-Column Grid and Reduced Card Sizes - High Priority */
