@@ -74,7 +74,7 @@ function openModal(id, name, ingredients, type, price1, price2) {
         </div>
       </div>
     `;
-    const artPrice = 4; // Diferença para carne artesanal
+    const artPrice = 0; // Troca gratuita para carne artesanal
     optionsHtml = `
       <div class="modal-section">
         <label>Tipo de Carne:</label>
@@ -85,7 +85,7 @@ function openModal(id, name, ingredients, type, price1, price2) {
           </label>
           <label class="border-option">
             <input type="radio" name="meatOption" value="artesanal" data-extra="${artPrice}" data-label="Carne Artesanal" onchange="updateModalTotal()">
-            <span class="border-label">Artesanal <em>+R$ ${artPrice},00</em></span>
+            <span class="border-label">Artesanal <em>Grátis</em></span>
           </label>
         </div>
       </div>
