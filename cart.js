@@ -70,11 +70,11 @@ function openModal(id, name, ingredients, type, price1, price2) {
         <div class="border-options">
           <label class="border-option">
             <input type="radio" name="meatOption" value="industrial" data-extra="0" data-label="Carne Tradicional" checked onchange="updateModalTotal()">
-            <span class="border-label">Tradicional <em>Incluso</em></span>
+            <span class="border-label">Tradicional</span>
           </label>
           <label class="border-option">
             <input type="radio" name="meatOption" value="artesanal" data-extra="${artPrice}" data-label="Carne Artesanal" onchange="updateModalTotal()">
-            <span class="border-label">Artesanal <em>Grátis</em></span>
+            <span class="border-label">Artesanal</span>
           </label>
         </div>
       </div>
