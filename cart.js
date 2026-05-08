@@ -426,15 +426,22 @@ function setupProductCards() {
     const price1 = card.getAttribute('data-price1');
     const price2 = card.getAttribute('data-price2') || '';
 
+    // Add button
     const addBtn = document.createElement('button');
     addBtn.className = 'btn-add-to-cart';
     addBtn.textContent = 'Adicionar';
-    addBtn.onclick = (e) => {
+    addBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       openModal(null, name, ingredients, type, price1, price2);
-    };
-
+    });
     cardBack.appendChild(addBtn);
+
+    // Flip ON only — unflipping is handled by clicking outside (window listener below)
+    card.addEventListener('click', (e) => {
+      if (!card.classList.contains('flipped')) {
+        card.classList.add('flipped');
+      }
+    });
   });
 }
 
@@ -442,13 +449,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initCart();
   setupProductCards();
 
-  // Fechar cards e modal ao clicar fora
+  // Fechar cards ao clicar fora
   window.addEventListener('click', (e) => {
-    // Se não clicou em um card ou em um botão de adicionar, desvira todos os cards
     if (!e.target.closest('.pizza-card') && !e.target.closest('.btn-add-to-cart')) {
-      document.querySelectorAll('.pizza-card.flipped').forEach(card => {
-        card.classList.remove('flipped');
-      });
+      document.querySelectorAll('.pizza-card.flipped').forEach(c => c.classList.remove('flipped'));
     }
 
     // Fechar modal ao clicar no fundo escuro (overlay)

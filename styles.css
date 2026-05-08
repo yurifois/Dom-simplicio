@@ -11,24 +11,24 @@
 /* CSS Variables - Design Tokens */
 :root {
     /* Brand Colors - "Tradição no Caminho" */
-    --color-terracotta: #E61C1C;
-    --color-terracotta-dark: #B31515;
-    --color-terracotta-light: #FF4D4D;
-    --color-olive: #3A5F0B;
+    --color-terracotta: #ED1C24;
+    --color-terracotta-dark: #BF161D;
+    --color-terracotta-light: #FF4D54;
+    --color-olive: #006837;
     /* Keeping olive for some accents unless needed otherwise */
-    --color-olive-dark: #2A4508;
-    --color-olive-light: #4A7F1B;
-    --color-salmon: #FAC090;
-    --color-salmon-dark: #E6A97A;
+    --color-olive-dark: #004D29;
+    --color-olive-light: #008A49;
+    --color-salmon: #F9D3B4;
+    --color-salmon-dark: #F4C49F;
     --color-cream: var(--color-salmon);
     --color-cream-dark: var(--color-salmon-dark);
     --color-kraft: #D4C9B5;
-    --color-gold: #FFC107;
-    --color-gold-light: #FFD54F;
+    --color-gold: #FBB03B;
+    --color-gold-light: #FFC66D;
     --color-dark: #1A1A1A;
     --color-dark-light: #333333;
-    --color-brown: #5D3A1A;
-    --color-brown-dark: #3F260E;
+    --color-brown: #4B2C0F;
+    --color-brown-dark: #301B09;
     --color-white: #FFFFFF;
     --color-whatsapp: #25D366;
 
@@ -39,7 +39,7 @@
     --gradient-brown: linear-gradient(135deg, var(--color-brown) 0%, var(--color-brown-dark) 100%);
     --gradient-dark: linear-gradient(135deg, #1A1A1A 0%, #333333 100%);
     --gradient-cream: linear-gradient(180deg, var(--color-cream) 0%, var(--color-cream-dark) 100%);
-    --gradient-warm: linear-gradient(135deg, #E61C1C 0%, #FFC107 100%);
+    --gradient-warm: linear-gradient(135deg, var(--color-terracotta) 0%, var(--color-gold) 100%);
     --gradient-hero: linear-gradient(180deg, rgba(26, 26, 26, 0.3) 0%, rgba(26, 26, 26, 0.85) 100%);
     --gradient-card: linear-gradient(180deg, transparent 0%, rgba(26, 26, 26, 0.95) 100%);
 
@@ -92,7 +92,7 @@ html {
 
 body {
     font-family: var(--font-body);
-    background: var(--gradient-cream);
+    background: var(--color-salmon);
     color: var(--color-dark);
     line-height: 1.6;
     overflow-x: hidden;
@@ -158,7 +158,7 @@ a {
 }
 
 .navbar.scrolled {
-    background: rgba(244, 241, 234, 0.98);
+    background: rgba(249, 211, 180, 0.98);
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow-sm);
 }
@@ -178,12 +178,14 @@ a {
     height: 100px;
     width: auto;
     transition: var(--transition-normal);
-    filter: brightness(0) invert(1) drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+    /* Golden filter approximation */
+    filter: brightness(0) saturate(100%) invert(78%) sepia(35%) saturate(760%) hue-rotate(345deg) brightness(101%) contrast(98%) drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .navbar.scrolled .logo-img {
-    filter: none;
     height: 60px;
+    /* Red filter approximation (#ED1C24) */
+    filter: brightness(0) saturate(100%) invert(18%) sepia(85%) saturate(7469%) hue-rotate(355deg) brightness(94%) contrast(110%);
 }
 
 .nav-links {
@@ -305,7 +307,7 @@ a {
     display: inline-flex;
     align-items: center;
     gap: var(--space-xs);
-    background: var(--gradient-olive);
+    background: var(--gradient-terracotta);
     color: var(--color-white);
     padding: var(--space-xs) var(--space-md);
     border-radius: var(--radius-full);
@@ -316,18 +318,17 @@ a {
 }
 
 .hero h1 {
-    color: var(--color-white);
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: var(--space-md);
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
     font-weight: 900;
 }
 
 .hero h1 em {
     font-style: normal;
-    background: var(--gradient-gold);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
 .hero-tagline {
@@ -403,7 +404,7 @@ a {
    Delivery Checker Section
    =================================== */
 .delivery-checker {
-    background: var(--gradient-olive);
+    background: var(--gradient-terracotta);
     padding: var(--space-lg) 0;
     text-align: center;
     position: relative;
@@ -517,7 +518,7 @@ a {
 
 .section-label {
     display: inline-block;
-    background: var(--gradient-olive);
+    background: var(--gradient-terracotta);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -601,14 +602,15 @@ a {
 .pizza-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: var(--space-lg);
+    gap: 4rem var(--space-lg);
+    padding-top: 80px;
     position: relative;
     z-index: 1;
 }
 
 .pizza-card {
     perspective: 1000px;
-    height: 320px;
+    height: 380px;
 }
 
 .pizza-card-inner {
@@ -621,9 +623,12 @@ a {
     cursor: pointer;
 }
 
-.pizza-card:hover .pizza-card-inner,
 .pizza-card.flipped .pizza-card-inner {
     transform: rotateY(180deg);
+}
+
+.pizza-card.flipped .pizza-card-front {
+    pointer-events: none;
 }
 
 .pizza-card-front,
@@ -635,76 +640,88 @@ a {
     -webkit-backface-visibility: hidden;
     border-radius: var(--radius-lg);
     overflow: hidden;
+    transform-style: preserve-3d;
 }
 
 .pizza-card-front {
-    background: var(--gradient-dark);
+    background: transparent !important;
     display: flex;
     flex-direction: column;
-    border: 2px solid rgba(201, 162, 39, 0.4);
+    justify-content: flex-start;
+    border: none !important;
+    overflow: visible;
+    padding-top: 110px; /* Espaço para a pizza saltar para cima */
 }
 
 .pizza-card-front::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: var(--gradient-gold);
-    z-index: 10;
-    pointer-events: none;
+    display: none;
 }
 
 .pizza-card-image {
-    height: 200px;
-    background: var(--color-dark);
+    position: absolute;
+    top: -40px; /* Ajustado para que a pizza comece acima do card */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 220px;
+    background: transparent !important;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    overflow: hidden;
+    z-index: 5; /* Garante que a pizza fique SOBRE o card */
+    overflow: visible;
 }
 
 .pizza-card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    border-radius: 50%;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 3px solid rgba(201, 162, 39, 0.3);
 }
 
 .pizza-card:hover .pizza-card-image img {
-    transform: scale(1.1);
+    transform: scale(1.1) translateY(-10px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.8);
 }
 
 .pizza-card-image::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100px;
-    background: var(--gradient-card);
-    pointer-events: none;
+    display: none;
 }
 
 .pizza-card-info {
-    padding: var(--space-md);
+    padding: 80px var(--space-md) var(--space-md); /* Padding superior maior para o texto não ficar sob a pizza */
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: var(--gradient-dark);
+    align-items: center;
+    text-align: center;
+    background: var(--color-salmon);
+    border: 2px solid var(--color-terracotta);
+    border-radius: var(--radius-lg);
+    position: relative;
+    z-index: 2;
+    box-shadow: var(--shadow-lg);
+    margin-top: 0;
 }
 
 .pizza-card-info h4 {
-    color: var(--color-white);
-    font-size: 1.2rem;
+    color: var(--color-terracotta);
+    font-size: 2.2rem;
     margin-bottom: var(--space-xs);
+    text-transform: uppercase;
+    font-weight: 900;
+    -webkit-text-stroke: 1.5px var(--color-gold);
+    letter-spacing: 1px;
+    line-height: 1;
+    width: 100%;
 }
 
 .pizza-card-info .tap-hint {
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--color-dark-light);
     font-size: 0.8rem;
 }
 
@@ -716,13 +733,13 @@ a {
     -webkit-backface-visibility: hidden;
     border-radius: var(--radius-lg);
     overflow: hidden;
-    background: linear-gradient(145deg, #2D2A26 0%, #3D3632 50%, #2D2A26 100%);
+    background: var(--gradient-terracotta);
     transform: rotateY(180deg) !important;
     padding: 0;
     display: flex;
     flex-direction: column;
     box-shadow: var(--shadow-lg);
-    border: 2px solid rgba(224, 90, 71, 0.3);
+    border: 2px solid var(--color-gold);
 }
 
 /* Subtle texture effect */
@@ -741,7 +758,7 @@ a {
 
 /* Name area - top section with gradient */
 .pizza-card-back h4 {
-    background: var(--gradient-terracotta);
+    background: rgba(0, 0, 0, 0.1);
     color: var(--color-white);
     -webkit-background-clip: unset;
     -webkit-text-fill-color: unset;
@@ -798,6 +815,10 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 100;
+    transform: translateZ(10px);
+    pointer-events: auto;
 }
 
 .pizza-card-back .btn-add-to-cart:hover {
@@ -883,7 +904,11 @@ a {
 }
 
 .experience-section .section-header h2 {
-    color: var(--color-white);
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
 
 .experience-section .section-header p {
@@ -904,7 +929,7 @@ a {
     padding: var(--space-xl);
     background: linear-gradient(135deg, rgba(45, 42, 38, 0.85) 0%, rgba(45, 42, 38, 0.7) 100%);
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid var(--color-salmon);
     transition: var(--transition-normal);
     backdrop-filter: blur(10px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -1002,7 +1027,7 @@ a {
     box-shadow: var(--shadow-sm);
     transition: var(--transition-normal);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--color-salmon);
 }
 
 .location-item:hover {
@@ -1566,8 +1591,8 @@ a {
 .btn-add-cart {
     width: 100%;
     padding: var(--space-md);
-    background: var(--color-brown);
-    color: var(--color-gold);
+    background: var(--gradient-terracotta);
+    color: var(--color-white);
     border: none;
     border-radius: var(--radius-lg);
     font-size: 1.1rem;
@@ -1581,7 +1606,7 @@ a {
 }
 
 .btn-add-cart:hover {
-    background: var(--color-brown-dark);
+    background: var(--color-terracotta-dark);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
@@ -1626,7 +1651,7 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: var(--space-lg);
-    background: var(--gradient-dark);
+    background: var(--gradient-terracotta);
     color: var(--color-white);
 }
 
@@ -1666,7 +1691,7 @@ a {
 }
 
 .cart-item-beverage {
-    border-left-color: var(--color-olive);
+    border-left-color: var(--color-gold);
 }
 
 .cart-item-info h4 {
@@ -1707,14 +1732,14 @@ a {
 /* Beverages Section */
 #beverageSection {
     padding: var(--space-md);
-    background: rgba(58, 95, 11, 0.1);
+    background: rgba(251, 176, 59, 0.1);
     border-radius: var(--radius-md);
     margin-top: var(--space-md);
 }
 
 #beverageSection h4 {
     margin: 0 0 var(--space-md);
-    color: var(--color-olive);
+    color: var(--color-terracotta);
 }
 
 .beverage-option {
@@ -1730,7 +1755,7 @@ a {
 }
 
 .beverage-price {
-    color: var(--color-olive);
+    color: var(--color-terracotta);
     font-weight: 600;
 }
 
@@ -1743,16 +1768,16 @@ a {
 .qty-btn-sm {
     width: 28px;
     height: 28px;
-    border: 1px solid var(--color-olive);
+    border: 1px solid var(--color-terracotta);
     background: var(--color-white);
-    color: var(--color-olive);
+    color: var(--color-terracotta);
     border-radius: var(--radius-sm);
     font-size: 1rem;
     cursor: pointer;
 }
 
 .qty-btn-sm:hover {
-    background: var(--color-olive);
+    background: var(--color-terracotta);
     color: var(--color-white);
 }
 
@@ -1832,7 +1857,7 @@ a {
 
 /* Add to Cart Button on Pizza Card Back */
 .btn-add-to-cart {
-    background: var(--gradient-olive);
+    background: var(--gradient-terracotta);
     color: var(--color-white);
     border: none;
     padding: var(--space-sm) var(--space-md);
@@ -1855,7 +1880,7 @@ a {
 
 .info-item {
     background: var(--color-cream);
-    border: 2px dashed var(--color-olive);
+    border: 2px dashed var(--color-terracotta);
     padding: 1.5rem 2rem;
     border-radius: 1.5rem;
     text-align: center;
@@ -1983,7 +2008,7 @@ a {
         top: 50% !important;
         transform: translateY(-50%) !important;
         flex-direction: column !important;
-        background: rgba(26, 26, 26, 0.9) !important;
+        background: rgba(237, 28, 36, 0.95) !important;
         padding: 15px 8px !important;
         border-radius: 0 20px 20px 0 !important;
         z-index: 1002 !important;
@@ -2149,8 +2174,9 @@ a {
     }
 
     .pizza-card-info h4 {
-        font-size: 0.85rem !important;
+        font-size: 1.1rem !important;
         margin-bottom: 2px !important;
+        -webkit-text-stroke: 0.8px var(--color-gold) !important;
     }
 
     .pizza-card-info .tap-hint {
