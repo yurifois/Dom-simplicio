@@ -2212,12 +2212,19 @@ a {
         top: -20px !important; /* Sobrepõe levemente o card de texto */
         left: 0 !important;
         transform: none !important;
-        width: 190px !important; /* Pizza bem grande como solicitado */
+        width: 190px !important; /* Base para hambúrgueres */
         height: 190px !important;
         order: 2 !important;
         margin: 0 auto !important;
         z-index: 5 !important;
-        pointer-events: none; /* Garante que o clique passe para o card/botão */
+        pointer-events: none;
+    }
+
+    /* Ajuste específico para PIZZAS ficarem gigantes e ovais como solicitado */
+    .pizza-card[data-type="pizza"] .pizza-card-image {
+        width: 225px !important; 
+        height: 225px !important;
+        top: -45px !important; /* Sobe mais sobre o texto para o efeito 'oval' gigante */
     }
 
     .pizza-card-image img {
