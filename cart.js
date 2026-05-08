@@ -438,9 +438,10 @@ function setupProductCards() {
 
     // Flip ON only — unflipping is handled by clicking outside (window listener below)
     card.addEventListener('click', (e) => {
-      if (!card.classList.contains('flipped')) {
-        card.classList.add('flipped');
-      }
+      // Se clicar no botão de adicionar, o card NÃO deve desvirar
+      if (e.target.closest('.btn-add-to-cart')) return;
+      
+      card.classList.toggle('flipped');
     });
   });
 }

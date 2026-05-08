@@ -2205,13 +2205,14 @@ a {
     }
 
     .pizza-card-back {
-        justify-content: flex-start !important; /* Alinhado ao topo para subir o preço */
+        justify-content: space-between !important; /* Distribui conteúdo: texto em cima, botão embaixo */
         background: var(--color-cream) !important;
         transform: rotateY(180deg) !important;
         z-index: 1 !important;
-        padding-top: 15px !important;
+        padding: 15px 10px 10px !important;
     }
 
+    /* Reset de estilos internos para evitar conflitos */
     .pizza-card-info {
         background: transparent !important;
         border: none !important;
@@ -2220,7 +2221,7 @@ a {
     }
 
     .pizza-card-info h4 {
-        font-size: 0.95rem !important;
+        font-size: 1rem !important;
         margin-bottom: 4px !important;
         color: var(--color-terracotta) !important;
         -webkit-text-stroke: 0.5px var(--color-gold) !important;
@@ -2238,6 +2239,7 @@ a {
         width: 140px !important; 
         height: 85px !important;
         z-index: 15 !important;
+        pointer-events: auto !important; /* Garante que o clique na imagem desvire o card */
     }
 
     .pizza-card-image img {
@@ -2268,25 +2270,31 @@ a {
         transform: translateX(-50%) !important;
     }
 
-    /* Back of card: Price moved UP and button standardized */
+    /* Back of card: Preço dentro de uma caixa e Botão no Rodapé */
     .pizza-card-back h4 {
-        font-size: 0.9rem !important;
+        font-size: 1rem !important;
         margin-bottom: 5px !important;
     }
 
     .pizza-card-back .ingredients {
-        font-size: 0.65rem !important;
+        font-size: 0.7rem !important;
         line-height: 1.2 !important;
-        margin-bottom: 8px !important;
-        max-height: 50px !important;
+        margin-bottom: 5px !important;
+        max-height: 45px !important;
         overflow: hidden !important;
+        color: var(--color-dark) !important;
     }
 
     .pizza-card-back .price-tag {
-        font-size: 1.1rem !important;
+        font-size: 1rem !important;
         font-weight: bold !important;
-        margin-bottom: 10px !important;
         color: var(--color-terracotta) !important;
+        background: rgba(224, 184, 147, 0.2) !important; /* Caixa para o preço */
+        padding: 4px 12px !important;
+        border-radius: var(--radius-sm) !important;
+        border: 1px solid var(--color-terracotta) !important;
+        margin: 5px auto !important;
+        display: inline-block !important;
     }
 
     .btn-add-to-cart {
@@ -2296,8 +2304,8 @@ a {
         pointer-events: auto !important;
         z-index: 50 !important;
         position: relative !important;
-        margin-top: auto !important; /* Empurra para a base do card */
-        transform: none !important; /* REMOVIDO translateZ para não vazar no front */
+        margin-top: auto !important; /* Joga o botão para o rodapé do card */
+        transform: none !important;
         background: var(--gradient-olive) !important;
         border-radius: var(--radius-md) !important;
     }
