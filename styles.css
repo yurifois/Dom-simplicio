@@ -2165,12 +2165,45 @@ a {
         height: 220px !important; 
     }
 
-    .pizza-card-image {
-        height: 110px !important; 
+    /* Layout específico para Pizzas: Texto em cima, Pizza embaixo */
+    .pizza-card[data-type="pizza"] .pizza-card-front {
+        padding-top: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
     }
 
-    .pizza-card-info {
-        padding: 5px !important;
+    .pizza-card[data-type="pizza"] .pizza-card-info {
+        order: 1 !important;
+        padding: 15px 10px !important;
+        background: var(--color-salmon) !important;
+        border: 2px solid var(--color-terracotta) !important;
+        border-radius: var(--radius-lg) !important;
+    }
+
+    .pizza-card[data-type="pizza"] .pizza-card-image {
+        order: 2 !important;
+        position: relative !important;
+        top: -15px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        height: 130px !important; 
+        width: 110% !important;
+        z-index: 5 !important;
+    }
+
+    /* Layout específico para Burgers: Mantém o formato original (imagem em cima saltando) */
+    .pizza-card[data-type="burger"] .pizza-card-front {
+        padding-top: 100px !important;
+    }
+
+    .pizza-card[data-type="burger"] .pizza-card-image {
+        position: absolute !important;
+        top: -30px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        height: 110px !important;
+        width: 110% !important;
+        z-index: 5 !important;
     }
 
     .pizza-card-info h4 {
@@ -2178,7 +2211,6 @@ a {
         margin-bottom: 2px !important;
         -webkit-text-stroke: 0.8px var(--color-gold) !important;
     }
-
     .pizza-card-info .tap-hint {
         font-size: 0.6rem !important;
     }
