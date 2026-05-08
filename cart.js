@@ -411,36 +411,66 @@ function showCategory(event, categoryId) {
 function setupProductCards() {
   document.querySelectorAll('.pizza-card, .product-card').forEach(card => {
     const cardBack = card.querySelector('.pizza-card-back, .product-card-back');
-    if (!cardBack) return;
+    const cardFront = card.querySelector('.pizza-card-front, .product-card-front');
+    if (!cardBack || !cardFront) return;
 
-    // Remove existing button to avoid duplicates
-    const existingBtn = cardBack.querySelector('.btn-add-to-cart');
-    if (existingBtn) existingBtn.remove();
-
-    const h4 = cardBack.querySelector('h4');
-    if (!h4) return;
-
-    const name = h4.textContent;
+    // Get Data
+    const h4Back = cardBack.querySelector('h4');
+    const name = h4Back ? h4Back.textContent : (cardFront.querySelector('h4')?.textContent || '');
     const ingredients = cardBack.querySelector('.ingredients')?.textContent || '';
     const type = card.getAttribute('data-type') || 'pizza';
-    const price1 = card.getAttribute('data-price1');
-    const price2 = card.getAttribute('data-price2') || '';
+    const priceCategory = card.getAttribute('data-price1');
+    const priceVal = card.getAttribute('data-price2') || '';
+    
+    // Determine Price
+    let displayPrice = priceVal;
+    if (type === 'pizza' && pizzaPrices[priceCategory]) {
+      displayPrice = pizzaPrices[priceCategory];
+    } else if (!displayPrice && priceCategory) {
+      displayPrice = priceCategory;
+    }
 
-    // Add button
+    // 1. FRONT: Move ingredients here and update hint
+    const infoContainer = cardFront.querySelector('.pizza-card-info');
+    if (infoContainer) {
+      // Remove old hint and ingredients if they exist (clean setup)
+      infoContainer.querySelectorAll('.ingredients, .tap-hint').forEach(el => el.remove());
+      
+      // Add Ingredients
+      if (ingredients) {
+        const p = document.createElement('p');
+        p.className = 'ingredients';
+        p.textContent = ingredients;
+        infoContainer.appendChild(p);
+      }
+      
+      // Update Hint
+      const hint = document.createElement('span');
+      hint.className = 'tap-hint';
+      hint.textContent = 'Toque para fazer o pedido';
+      infoContainer.appendChild(hint);
+    }
+
+    // 2. BACK: Only Price and Button
+    cardBack.innerHTML = '';
+    
+    const priceBox = document.createElement('div');
+    priceBox.className = 'price-tag';
+    priceBox.textContent = `R$ ${displayPrice},00`;
+    cardBack.appendChild(priceBox);
+
     const addBtn = document.createElement('button');
     addBtn.className = 'btn-add-to-cart';
     addBtn.textContent = 'Adicionar';
     addBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      openModal(null, name, ingredients, type, price1, price2);
+      openModal(null, name, ingredients, type, priceCategory, priceVal);
     });
     cardBack.appendChild(addBtn);
 
-    // Flip ON only — unflipping is handled by clicking outside (window listener below)
+    // 3. Flip Logic (Toggle)
     card.addEventListener('click', (e) => {
-      // Se clicar no botão de adicionar, o card NÃO deve desvirar
       if (e.target.closest('.btn-add-to-cart')) return;
-      
       card.classList.toggle('flipped');
     });
   });
