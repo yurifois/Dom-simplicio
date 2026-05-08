@@ -2151,36 +2151,73 @@ a {
     }
 }
 
-/* 2-Column Grid and Reduced Card Sizes - High Priority */
+/* 2-Column Grid and Optimized Card Layout for Mobile */
 @media (max-width: 768px) {
     .pizza-grid {
         grid-template-columns: repeat(2, 1fr) !important;
         display: grid !important;
-        gap: 8px !important;
-        padding: 0 !important;
+        gap: 40px 12px !important; /* Maior gap vertical para evitar sobreposição */
+        padding: 20px 10px !important;
         width: 100% !important;
     }
 
     .pizza-card {
-        height: 220px !important; 
+        height: 280px !important; /* Altura aumentada para acomodar texto + imagem */
     }
 
-    .pizza-card-image {
-        height: 110px !important; 
+    .pizza-card-front {
+        padding-top: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        background: transparent !important;
+        border: none !important;
     }
 
     .pizza-card-info {
-        padding: 5px !important;
+        padding: 15px 5px !important;
+        order: 1 !important;
+        flex: 0 0 auto !important;
+        background: var(--color-salmon) !important;
+        border: 2px solid var(--color-terracotta) !important;
+        border-radius: var(--radius-lg) !important;
+        width: 100% !important;
+        min-height: 100px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        box-shadow: var(--shadow-md) !important;
     }
 
     .pizza-card-info h4 {
         font-size: 1.1rem !important;
-        margin-bottom: 2px !important;
+        margin-bottom: 4px !important;
         -webkit-text-stroke: 0.8px var(--color-gold) !important;
+        line-height: 1.1 !important;
     }
 
     .pizza-card-info .tap-hint {
-        font-size: 0.6rem !important;
+        font-size: 0.65rem !important;
+        opacity: 0.8;
+    }
+
+    .pizza-card-image {
+        position: relative !important;
+        top: -15px !important; /* Leve sobreposição sobre o texto, mas contida no card */
+        left: 0 !important;
+        transform: none !important;
+        width: 160px !important;
+        height: 160px !important;
+        order: 2 !important;
+        margin: 0 auto !important;
+        z-index: 10 !important;
+    }
+
+    .pizza-card-image img {
+        width: 100% !important;
+        height: 100% !important;
+        transform: none !important;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.4) !important;
     }
 
     /* Back of card adjustments for mobile */
