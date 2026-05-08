@@ -2170,12 +2170,13 @@ a {
         overflow: visible !important;
     }
 
-    .pizza-card-info {
+    /* Layout para Pizzas (como o usuário gostou) */
+    .pizza-card[data-type="pizza"] .pizza-card-info {
         position: absolute !important;
         top: 0 !important;
         left: 0 !important;
         width: 100% !important;
-        height: 160px !important; /* Card um pouco mais curto para a pizza sobressair */
+        height: 160px !important;
         padding: 15px 10px !important;
         background: var(--color-salmon) !important;
         border: 2px solid var(--color-terracotta) !important;
@@ -2187,15 +2188,36 @@ a {
         align-items: center !important;
     }
 
-    .pizza-card-image {
+    .pizza-card[data-type="pizza"] .pizza-card-image {
         position: absolute !important;
-        bottom: -15px !important; /* Pizza "saindo" por baixo */
+        bottom: -15px !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
         width: 160px !important;
         height: 160px !important;
         z-index: 10 !important;
         margin: 0 !important;
+    }
+
+    /* Layout para Lanches (preservando o formato original) */
+    .pizza-card[data-type="burger"] .pizza-card-info,
+    .pizza-card[data-type="lanche"] .pizza-card-info {
+        background: var(--color-salmon) !important;
+        border: 2px solid var(--color-terracotta) !important;
+        border-radius: var(--radius-lg) !important;
+        height: 100% !important;
+        padding: 60px 10px 10px !important; /* Espaço para a pizza em cima */
+    }
+
+    .pizza-card[data-type="burger"] .pizza-card-image,
+    .pizza-card[data-type="lanche"] .pizza-card-image {
+        position: absolute !important;
+        top: -20px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 140px !important;
+        height: 140px !important;
+        z-index: 10 !important;
     }
 
     .pizza-card-info h4 {
