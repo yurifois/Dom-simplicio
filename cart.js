@@ -430,11 +430,12 @@ function setupProductCards() {
       displayPrice = priceCategory;
     }
 
-    // 1. FRONT: Move ingredients here and update hint
+    // 1. FRONT: Move ingredients and update hint
     const infoContainer = cardFront.querySelector('.pizza-card-info');
     if (infoContainer) {
-      // Remove old hint and ingredients if they exist (clean setup)
+      // Remove old elements to avoid duplicates
       infoContainer.querySelectorAll('.ingredients, .tap-hint').forEach(el => el.remove());
+      cardFront.querySelectorAll('.tap-hint').forEach(el => el.remove());
       
       // Add Ingredients
       if (ingredients) {
@@ -444,14 +445,14 @@ function setupProductCards() {
         infoContainer.appendChild(p);
       }
       
-      // Update Hint
+      // Add Hint to the ROOT of the front face (absolute footer)
       const hint = document.createElement('span');
       hint.className = 'tap-hint';
       hint.textContent = 'Toque para fazer o pedido';
-      infoContainer.appendChild(hint);
+      cardFront.appendChild(hint);
     }
 
-    // 2. BACK: Only Price and Button
+    // 2. BACK: Price (top) and Button (bottom)
     cardBack.innerHTML = '';
     
     const priceBox = document.createElement('div');
