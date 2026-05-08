@@ -2334,15 +2334,16 @@ a {
         display: none !important; /* Removido do verso */
     }
 
+    /* Back of card: Preço encostado no botão */
     .pizza-card-back .price-tag {
         font-size: 1.1rem !important;
         font-weight: bold !important;
         color: var(--color-terracotta) !important;
-        background: rgba(224, 184, 147, 0.15) !important; 
-        padding: 5px 15px !important;
+        background: rgba(224, 184, 147, 0.2) !important; 
+        padding: 4px 15px !important;
         border-radius: var(--radius-sm) !important;
         border: 1px solid var(--color-terracotta) !important;
-        margin: 10px auto !important;
+        margin: 0 auto !important; /* Remove margens automáticas para aproximar */
         display: table !important; 
     }
 
@@ -2367,7 +2368,7 @@ a {
         pointer-events: auto !important;
         z-index: 100 !important;
         position: relative !important;
-        margin-top: auto !important; /* Joga o botão para o rodapé do card */
+        margin: 0 !important; /* Remove margens para ficar colado no preço */
         transform: none !important;
         background: var(--gradient-olive) !important;
         border-radius: var(--radius-md) !important;
