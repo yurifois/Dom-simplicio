@@ -390,14 +390,17 @@ a {
 }
 
 .cta-secondary {
-    background: var(--gradient-gold);
-    color: var(--color-dark);
-    box-shadow: var(--shadow-glow-gold);
+    background: var(--color-salmon);
+    color: var(--color-terracotta);
+    border: 2px solid var(--color-terracotta);
+    box-shadow: 0 4px 15px rgba(237, 28, 36, 0.1);
 }
 
 .cta-secondary:hover {
+    background: var(--color-terracotta);
+    color: var(--color-white);
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(201, 162, 39, 0.5);
+    box-shadow: 0 8px 30px rgba(237, 28, 36, 0.3);
 }
 
 /* ===================================
@@ -1921,43 +1924,54 @@ a {
     transform: scale(1.05);
 }
 
-/* Premium Shimmer Animation */
+/* Premium Shimmer Animation (Blade of Light) */
 .btn-add-cart,
-.btn-add-to-cart {
+.btn-add-to-cart,
+.cta-btn,
+.nav-cta {
     position: relative;
+}
+
+.btn-add-cart,
+.btn-add-to-cart,
+.cta-btn,
+.whatsapp-float,
+.cart-btn,
+.nav-cta {
     overflow: hidden;
 }
 
 .btn-add-cart::after,
-.btn-add-to-cart::after {
+.btn-add-to-cart::after,
+.cta-btn::after,
+.whatsapp-float::after,
+.cart-btn::after,
+.nav-cta::after {
     content: '';
     position: absolute;
     top: -50%;
-    left: -100%;
+    left: -150%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(45deg,
-            transparent 0%,
-            rgba(255, 255, 255, 0.1) 45%,
-            rgba(255, 255, 255, 0.5) 50%,
-            rgba(255, 255, 255, 0.1) 55%,
-            transparent 100%);
-    transform: rotate(25deg);
-    transition: all 0.1s;
-    animation: shimmer 4s infinite linear;
+    background: linear-gradient(
+        105deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.05) 40%,
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(255, 255, 255, 0.05) 60%,
+        transparent 70%
+    );
+    transform: rotate(20deg);
+    animation: blade-shimmer 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
+    z-index: 1;
 }
 
-@keyframes shimmer {
+@keyframes blade-shimmer {
     0% {
         left: -150%;
     }
-
-    20% {
-        left: 150%;
-    }
-
-    100% {
+    20%, 100% {
         left: 150%;
     }
 }
@@ -2399,7 +2413,6 @@ a {
 html, body {
     overflow-x: hidden !important;
     width: 100% !important;
-    position: relative !important;
 }
 
 .hero {
