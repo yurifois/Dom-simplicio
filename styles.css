@@ -2165,12 +2165,37 @@ a {
         height: 220px !important; 
     }
 
-    .pizza-card-image {
-        height: 110px !important; 
+    .pizza-card-front {
+        padding: 0 !important;
+        overflow: visible !important;
     }
 
     .pizza-card-info {
-        padding: 5px !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 160px !important; /* Card um pouco mais curto para a pizza sobressair */
+        padding: 15px 10px !important;
+        background: var(--color-salmon) !important;
+        border: 2px solid var(--color-terracotta) !important;
+        border-radius: var(--radius-lg) !important;
+        z-index: 5 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+    }
+
+    .pizza-card-image {
+        position: absolute !important;
+        bottom: -15px !important; /* Pizza "saindo" por baixo */
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 160px !important;
+        height: 160px !important;
+        z-index: 10 !important;
+        margin: 0 !important;
     }
 
     .pizza-card-info h4 {
