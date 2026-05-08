@@ -437,11 +437,12 @@ function setupProductCards() {
       infoContainer.querySelectorAll('.ingredients, .tap-hint').forEach(el => el.remove());
       cardFront.querySelectorAll('.tap-hint').forEach(el => el.remove());
       
-      // Add Ingredients
-      if (ingredients) {
+      // Add Ingredients (No descriptions for beverages)
+      const finalIngredients = (type === 'beverage') ? '' : ingredients;
+      if (finalIngredients) {
         const p = document.createElement('p');
         p.className = 'ingredients';
-        p.textContent = ingredients;
+        p.textContent = finalIngredients;
         infoContainer.appendChild(p);
       }
       
