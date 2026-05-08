@@ -2204,15 +2204,73 @@ a {
         transform: rotateY(0deg) !important;
     }
 
+@media (max-width: 768px) {
+    .pizza-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        display: grid !important;
+        gap: 55px 12px !important; 
+        padding: 40px 10px !important;
+        width: 100% !important;
+        overflow: visible !important;
+        touch-action: pan-y !important; /* Garante que o scroll vertical funcione */
+    }
+
+    .pizza-card {
+        aspect-ratio: 1 / 1 !important;
+        height: auto !important; 
+        width: 100% !important;
+        position: relative !important;
+        overflow: visible !important;
+        background: transparent !important;
+        perspective: 1000px !important;
+    }
+
+    .pizza-card-inner {
+        height: 100% !important;
+        width: 100% !important;
+        overflow: visible !important;
+        transform-style: preserve-3d !important;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    .pizza-card-front,
     .pizza-card-back {
-        justify-content: space-between !important; /* Distribui conteúdo: texto em cima, botão embaixo */
+        height: 100% !important;
+        width: 100% !important;
+        background: var(--color-salmon) !important;
+        border: 1.5px solid var(--color-terracotta) !important;
+        border-radius: var(--radius-lg) !important;
+        padding: 12px 8px !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        backface-visibility: hidden !important;
+        -webkit-backface-visibility: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        box-shadow: var(--shadow-md) !important;
+    }
+
+    .pizza-card-front {
+        justify-content: flex-start !important;
+        z-index: 2 !important;
+        transform: rotateY(0deg) !important;
+    }
+
+    .pizza-card-back {
+        justify-content: flex-end !important; /* Empurra tudo para baixo */
         background: var(--color-cream) !important;
         transform: rotateY(180deg) !important;
         z-index: 1 !important;
-        padding: 15px 10px 10px !important;
+        padding: 10px !important;
+        overflow: visible !important; /* Permite o efeito flutuante do botão */
     }
 
-    /* Reset de estilos internos para evitar conflitos */
+    /* ESCONDER NOME NO VERSO */
+    .pizza-card-back h4 {
+        display: none !important;
+    }
+
     .pizza-card-info {
         background: transparent !important;
         border: none !important;
@@ -2221,25 +2279,26 @@ a {
     }
 
     .pizza-card-info h4 {
-        font-size: 1rem !important;
+        font-size: 0.9rem !important;
         margin-bottom: 4px !important;
         color: var(--color-terracotta) !important;
         -webkit-text-stroke: 0.5px var(--color-gold) !important;
         text-align: center !important;
-        line-height: 1.1 !important;
+        line-height: 1 !important;
     }
 
     .pizza-card-info .tap-hint {
         font-size: 0.55rem !important;
         opacity: 0.7;
         margin-top: 5px !important;
+        text-align: center !important;
     }
 
     .pizza-card-image {
         width: 140px !important; 
         height: 85px !important;
-        z-index: 15 !important;
-        pointer-events: auto !important; /* Garante que o clique na imagem desvire o card */
+        z-index: 20 !important;
+        pointer-events: auto !important;
     }
 
     .pizza-card-image img {
@@ -2259,7 +2318,7 @@ a {
     }
 
     .pizza-card:not([data-type="pizza"]) .pizza-card-front {
-        padding-top: 35px !important; 
+        padding-top: 30px !important; 
         justify-content: center !important;
     }
 
@@ -2270,44 +2329,42 @@ a {
         transform: translateX(-50%) !important;
     }
 
-    /* Back of card: Preço dentro de uma caixa e Botão no Rodapé */
-    .pizza-card-back h4 {
-        font-size: 1rem !important;
-        margin-bottom: 5px !important;
-    }
-
+    /* Back of card: Tudo DENTRO e Organizado */
     .pizza-card-back .ingredients {
-        font-size: 0.7rem !important;
-        line-height: 1.2 !important;
-        margin-bottom: 5px !important;
-        max-height: 45px !important;
-        overflow: hidden !important;
+        font-size: 0.6rem !important; /* Fonte reduzida */
+        line-height: 1.1 !important;
+        margin-bottom: 6px !important;
+        text-align: center !important;
         color: var(--color-dark) !important;
+        display: block !important;
+        max-height: 35px !important;
+        overflow: hidden !important;
     }
 
     .pizza-card-back .price-tag {
-        font-size: 1rem !important;
+        font-size: 0.95rem !important;
         font-weight: bold !important;
         color: var(--color-terracotta) !important;
-        background: rgba(224, 184, 147, 0.2) !important; /* Caixa para o preço */
-        padding: 4px 12px !important;
+        background: rgba(224, 184, 147, 0.15) !important; /* Caixa para o preço */
+        padding: 3px 10px !important;
         border-radius: var(--radius-sm) !important;
         border: 1px solid var(--color-terracotta) !important;
-        margin: 5px auto !important;
-        display: inline-block !important;
+        margin: 0 auto 8px !important;
+        display: table !important; /* Centraliza a caixa de preço */
     }
 
     .btn-add-to-cart {
-        height: 42px !important;
+        height: 40px !important;
         font-size: 0.85rem !important;
         width: 100% !important;
         pointer-events: auto !important;
-        z-index: 50 !important;
+        z-index: 100 !important;
         position: relative !important;
-        margin-top: auto !important; /* Joga o botão para o rodapé do card */
-        transform: none !important;
+        margin-top: 5px !important;
         background: var(--gradient-olive) !important;
         border-radius: var(--radius-md) !important;
+        /* Efeito de flutuação apenas quando visível */
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important;
     }
     
     .match-tag {
@@ -2318,10 +2375,7 @@ a {
 /* Card Interaction: Expansion and Transition Fixes */
 .pizza-card {
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.3s step-end !important;
-}
-
-.pizza-card:active {
-    transform: scale(0.96) !important;
+    -webkit-tap-highlight-color: transparent !important;
 }
 
 .pizza-card.flipped {
